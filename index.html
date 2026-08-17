@@ -3061,59 +3061,69 @@ function toggleLanguage(){
 
 /* =========================================================
    GOOGLE FORMS SOURCING REQUEST
+   Website form -> Google Forms -> Google Sheets
 ========================================================= */
 
-document
-.getElementById("quoteForm")
-.addEventListener("submit", function(e){
+const quoteForm = document.getElementById("quoteForm");
+const formMessage = document.getElementById("formMessage");
+
+/* Hidden iframe keeps the visitor on the PAN-U VISION website. */
+const googleFormFrame = document.createElement("iframe");
+googleFormFrame.name = "googleFormTarget";
+googleFormFrame.style.display = "none";
+document.body.appendChild(googleFormFrame);
+
+quoteForm.addEventListener("submit", function(e){
 
     e.preventDefault();
 
-    const form = new FormData(this);
+    const data = new FormData(quoteForm);
 
-    const googleFormURL =
+    /* Build a real POST form for Google Forms. */
+    const googleForm = document.createElement("form");
+    googleForm.action =
         "https://docs.google.com/forms/d/e/1FAIpQLSeg3ItUaZycid0T_H0sY6py-zHXm1AVR9khYkpJ3mkBT83RgQ/formResponse";
+    googleForm.method = "POST";
+    googleForm.target = "googleFormTarget";
+    googleForm.style.display = "none";
 
-    const data = new URLSearchParams();
+    const fields = {
+        "entry.469767283": data.get("name") || "",
+        "entry.302178113": data.get("company") || "",
+        "entry.401213756": data.get("country") || "",
+        "entry.1540901517": data.get("whatsapp") || "",
+        "entry.1566523879": data.get("email") || "",
+        "entry.356660258": data.get("category") || "",
+        "entry.2136263631": data.get("quantity") || "",
+        "entry.1864453452": data.get("destination") || "",
+        "entry.59317575": data.get("message") || ""
+    };
 
-    data.append("entry.469767283", form.get("name") || "");
-    data.append("entry.302178113", form.get("company") || "");
-    data.append("entry.401213756", form.get("country") || "");
-    data.append("entry.1540901517", form.get("whatsapp") || "");
-    data.append("entry.1566523879", form.get("email") || "");
-    data.append("entry.356660258", form.get("category") || "");
-    data.append("entry.2136263631", form.get("quantity") || "");
-    data.append("entry.1864453452", form.get("destination") || "");
-    data.append("entry.59317575", form.get("message") || "");
-
-    fetch(
-        googleFormURL,
-        {
-            method: "POST",
-            mode: "no-cors",
-            body: data
-        }
-    )
-    .then(function(){
-
-        document
-        .getElementById("formMessage")
-        .textContent =
-            "Thank you. Your sourcing request has been received.";
-
-        document
-        .getElementById("quoteForm")
-        .reset();
-
-    })
-    .catch(function(){
-
-        document
-        .getElementById("formMessage")
-        .textContent =
-            "Something went wrong. Please try again.";
-
+    Object.keys(fields).forEach(function(name){
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = name;
+        input.value = fields[name];
+        googleForm.appendChild(input);
     });
+
+    document.body.appendChild(googleForm);
+
+    formMessage.textContent =
+        "Sending your sourcing request...";
+
+    /* Native form submission avoids the fetch/no-cors problem. */
+    HTMLFormElement.prototype.submit.call(googleForm);
+
+    setTimeout(function(){
+
+        formMessage.textContent =
+            "Thank you. Your sourcing request has been received. We will contact you shortly.";
+
+        quoteForm.reset();
+        googleForm.remove();
+
+    }, 1500);
 
 });
 
