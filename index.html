@@ -3060,99 +3060,60 @@ function toggleLanguage(){
 
 
 /* =========================================================
-   FORM
+   GOOGLE FORMS SOURCING REQUEST
 ========================================================= */
 
 document
 .getElementById("quoteForm")
-.addEventListener("submit",function(e){
+.addEventListener("submit", function(e){
 
     e.preventDefault();
 
-    const form =
-        new FormData(this);
+    const form = new FormData(this);
 
-    const name =
-        form.get("name");
+    const googleFormURL =
+        "https://docs.google.com/forms/d/e/1FAIpQLSeg3ItUaZycid0T_H0sY6py-zHXm1AVR9khYkpJ3mkBT83RgQ/formResponse";
 
-    const company =
-        form.get("company");
+    const data = new URLSearchParams();
 
-    const country =
-        form.get("country");
+    data.append("entry.469767283", form.get("name") || "");
+    data.append("entry.302178113", form.get("company") || "");
+    data.append("entry.401213756", form.get("country") || "");
+    data.append("entry.1540901517", form.get("whatsapp") || "");
+    data.append("entry.1566523879", form.get("email") || "");
+    data.append("entry.356660258", form.get("category") || "");
+    data.append("entry.2136263631", form.get("quantity") || "");
+    data.append("entry.1864453452", form.get("destination") || "");
+    data.append("entry.59317575", form.get("message") || "");
 
-    const whatsapp =
-        form.get("whatsapp");
+    fetch(
+        googleFormURL,
+        {
+            method: "POST",
+            mode: "no-cors",
+            body: data
+        }
+    )
+    .then(function(){
 
-    const email =
-        form.get("email");
+        document
+        .getElementById("formMessage")
+        .textContent =
+            "Thank you. Your sourcing request has been received.";
 
-    const category =
-        form.get("category");
+        document
+        .getElementById("quoteForm")
+        .reset();
 
-    const quantity =
-        form.get("quantity");
+    })
+    .catch(function(){
 
-    const destination =
-        form.get("destination");
+        document
+        .getElementById("formMessage")
+        .textContent =
+            "Something went wrong. Please try again.";
 
-    const message =
-        form.get("message");
-
-
-    const subject =
-        encodeURIComponent(
-            "New PAN-U VISION Sourcing Request"
-        );
-
-
-    const body =
-        encodeURIComponent(
-
-`New Sourcing Request
-
-Name:
-${name}
-
-Company:
-${company}
-
-Country:
-${country}
-
-WhatsApp:
-${whatsapp}
-
-Email:
-${email}
-
-Product:
-${category}
-
-Quantity:
-${quantity}
-
-Destination:
-${destination}
-
-Requirement:
-${message}
-`
-        );
-
-
-    window.location.href =
-        "mailto:zane15192515439@gmail.com" +
-        "?subject=" +
-        subject +
-        "&body=" +
-        body;
-
-
-    document
-    .getElementById("formMessage")
-    .textContent =
-        "Preparing your sourcing request...";
+    });
 
 });
 
