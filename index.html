@@ -3223,233 +3223,202 @@ function toggleLanguage(){
 
 
 /* =========================================================
-   GOOGLE FORMS SOURCING REQUEST
-   PAN-U VISION WEBSITE
-   WEBSITE FORM → GOOGLE FORM → GOOGLE SHEETS
+   PAN-U VISION
+   GOOGLE FORMS SUBMISSION
+   CUSTOMER STAYS ON WEBSITE
 ========================================================= */
 
-const quoteForm =
-    document.getElementById("quoteForm");
+const quoteForm = document.getElementById("quoteForm");
+const formMessage = document.getElementById("formMessage");
+const submitButton = document.getElementById("submitButton");
 
-const formMessage =
-    document.getElementById("formMessage");
+/* ---------------------------------------------------------
+   Create invisible iframe
+   Google Form will receive the submission here.
+   Customer will NOT leave this website.
+--------------------------------------------------------- */
 
-const submitButton =
-    document.getElementById("submitButton");
+const googleFormFrame = document.createElement("iframe");
 
+googleFormFrame.name = "panUHiddenGoogleForm";
+googleFormFrame.id = "panUHiddenGoogleForm";
 
-/*
-   Hidden iframe.
+googleFormFrame.style.position = "fixed";
+googleFormFrame.style.width = "1px";
+googleFormFrame.style.height = "1px";
+googleFormFrame.style.border = "0";
+googleFormFrame.style.opacity = "0";
+googleFormFrame.style.pointerEvents = "none";
+googleFormFrame.style.left = "-9999px";
+googleFormFrame.style.top = "-9999px";
 
-   This allows the Google Form submission
-   to happen without taking the visitor
-   away from the PAN-U VISION website.
-*/
-
-const googleFormFrame =
-    document.createElement("iframe");
-
-googleFormFrame.name =
-    "googleFormTarget";
-
-googleFormFrame.style.display =
-    "none";
-
-document.body.appendChild(
-    googleFormFrame
-);
+document.body.appendChild(googleFormFrame);
 
 
 /* =========================================================
    FORM SUBMIT
 ========================================================= */
 
-quoteForm.addEventListener(
-    "submit",
-    function(e){
+quoteForm.addEventListener("submit", function(e) {
 
-        e.preventDefault();
+    e.preventDefault();
 
+    /* Prevent double submission */
 
-        /* Prevent multiple clicks */
-
-        if(submitButton.disabled){
-            return;
-        }
+    if (submitButton.disabled) {
+        return;
+    }
 
 
-        const data =
-            new FormData(quoteForm);
+    /* -----------------------------------------------------
+       Get website form data
+    ----------------------------------------------------- */
+
+    const data = new FormData(quoteForm);
 
 
-        /* Disable button */
+    /* -----------------------------------------------------
+       Button state
+    ----------------------------------------------------- */
 
-        submitButton.disabled = true;
+    submitButton.disabled = true;
 
-        submitButton.textContent =
-            "SENDING...";
+    submitButton.textContent = "SENDING...";
 
+    formMessage.style.color = "#777";
 
-        /* =================================================
-           GOOGLE FORM SUBMISSION URL
-        ================================================= */
-
-        const googleForm =
-            document.createElement("form");
-
-        googleForm.action =
-            "https://docs.google.com/forms/d/e/1FAIpQLSeXDig9XRNq5jPsuVbgvkKkHedFgGfzwIs26TNYF8RYPdZMMw/formResponse";
-
-        googleForm.method =
-            "POST";
-
-        googleForm.target =
-            "googleFormTarget";
-
-        googleForm.style.display =
-            "none";
+    formMessage.textContent =
+        "Sending your sourcing request...";
 
 
-        /* =================================================
-           GOOGLE FORM FIELD MAPPING
+    /* =====================================================
+       CREATE GOOGLE FORM
+    ===================================================== */
 
-           Full Name
-           entry.68405017
+    const googleForm = document.createElement("form");
 
-           Company
-           entry.734667108
+    googleForm.action =
+        "https://docs.google.com/forms/d/e/1FAIpQLSeXDig9XRNq5jPsuVbgvkKkHedFgGfzwIs26TNYF8RYPdZMMw/formResponse";
 
-           Country
-           entry.403534399
+    googleForm.method = "POST";
 
-           WhatsApp
-           entry.1072628727
+    googleForm.target = "panUHiddenGoogleForm";
 
-           Email
-           entry.741711629
-
-           Product Category
-           entry.1302869534
-
-           Estimated Quantity
-           entry.2052737106
-
-           Destination / Port
-           entry.129690115
-
-           What are you looking for?
-           entry.1484201385
-        ================================================= */
-
-        const fields = {
-
-            "entry.68405017":
-                data.get("name") || "",
-
-            "entry.734667108":
-                data.get("company") || "",
-
-            "entry.403534399":
-                data.get("country") || "",
-
-            "entry.1072628727":
-                data.get("whatsapp") || "",
-
-            "entry.741711629":
-                data.get("email") || "",
-
-            "entry.1302869534":
-                data.get("category") || "",
-
-            "entry.2052737106":
-                data.get("quantity") || "",
-
-            "entry.129690115":
-                data.get("destination") || "",
-
-            "entry.1484201385":
-                data.get("message") || ""
-
-        };
+    googleForm.style.display = "none";
 
 
-        /* =================================================
-           CREATE HIDDEN INPUTS
-        ================================================= */
+    /* =====================================================
+       GOOGLE FORM FIELD MAPPING
+    ===================================================== */
 
-        Object.keys(fields).forEach(
-            function(name){
+    const fields = {
 
-                const input =
-                    document.createElement("input");
+        /* Full Name */
+        "entry.68405017":
+            data.get("name") || "",
 
-                input.type =
-                    "hidden";
+        /* Company */
+        "entry.734667108":
+            data.get("company") || "",
 
-                input.name =
-                    name;
+        /* Country */
+        "entry.403534399":
+            data.get("country") || "",
 
-                input.value =
-                    fields[name];
+        /* WhatsApp */
+        "entry.1072628727":
+            data.get("whatsapp") || "",
 
-                googleForm.appendChild(
-                    input
-                );
+        /* Email */
+        "entry.741711629":
+            data.get("email") || "",
 
-            }
-        );
+        /* Product Category */
+        "entry.1302869534":
+            data.get("category") || "",
+
+        /* Estimated Quantity */
+        "entry.2052737106":
+            data.get("quantity") || "",
+
+        /* Destination / Port */
+        "entry.129690115":
+            data.get("destination") || "",
+
+        /* Message */
+        "entry.1484201385":
+            data.get("message") || ""
+
+    };
 
 
-        document.body.appendChild(
-            googleForm
-        );
+    /* =====================================================
+       CREATE HIDDEN INPUTS
+    ===================================================== */
+
+    Object.keys(fields).forEach(function(fieldName) {
+
+        const input = document.createElement("input");
+
+        input.type = "hidden";
+
+        input.name = fieldName;
+
+        input.value = fields[fieldName];
+
+        googleForm.appendChild(input);
+
+    });
 
 
-        /* =================================================
-           SHOW SENDING MESSAGE
-        ================================================= */
+    /* -----------------------------------------------------
+       Add Google Form to website
+    ----------------------------------------------------- */
+
+    document.body.appendChild(googleForm);
+
+
+    /* =====================================================
+       SUBMIT TO GOOGLE
+       
+       Customer remains on PAN-U VISION website.
+    ===================================================== */
+
+    HTMLFormElement.prototype.submit.call(googleForm);
+
+
+    /* =====================================================
+       SUCCESS MESSAGE
+    ===================================================== */
+
+    setTimeout(function() {
+
+        formMessage.style.color = "#555";
 
         formMessage.textContent =
-            "Sending your sourcing request...";
+            "Thank you. Your sourcing request has been received. We will contact you shortly.";
 
 
-        /* =================================================
-           SUBMIT TO GOOGLE FORMS
+        /* Clear customer form */
 
-           Native submission is used instead of fetch()
-           because Google Forms blocks normal
-           cross-origin fetch requests.
-        ================================================= */
-
-        HTMLFormElement
-            .prototype
-            .submit
-            .call(googleForm);
+        quoteForm.reset();
 
 
-        /* =================================================
-           SUCCESS MESSAGE
-        ================================================= */
+        /* Restore button */
 
-        setTimeout(
-            function(){
+        submitButton.disabled = false;
 
-                formMessage.textContent =
-                    "Thank you. Your sourcing request has been received. We will contact you shortly.";
+        submitButton.textContent =
+            "SEND SOURCING REQUEST →";
 
-                quoteForm.reset();
 
-                submitButton.disabled =
-                    false;
+        /* Remove temporary Google form */
 
-                submitButton.textContent =
-                    "SEND SOURCING REQUEST →";
+        googleForm.remove();
 
-                googleForm.remove();
+    }, 1800);
 
-            },
-            1500
-        );
+});
 
     }
 );
