@@ -18,7 +18,6 @@ content="PAN-U VISION is a China-based sourcing and supply chain partner helping
 
 /* =========================================================
    PAN-U VISION V3.2
-   VISUAL UPGRADE — BASED ON USER CURRENT VERSION
 ========================================================= */
 
 :root{
@@ -242,7 +241,6 @@ video{
     object-fit:cover;
 }
 
-
 .hero-overlay{
     position:absolute;
     inset:0;
@@ -431,10 +429,10 @@ video{
     color:#666;
 }
 
-
 /* =========================================================
    CHALLENGE METRICS
 ========================================================= */
+
 .challenge-metrics{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -442,17 +440,24 @@ video{
     border-top:1px solid #ccc;
     border-bottom:1px solid #ddd;
 }
+
 .challenge-metric{
     padding:22px 24px 22px 0;
     border-right:1px solid #ddd;
 }
-.challenge-metric:last-child{border-right:0;padding-left:24px}
+
+.challenge-metric:last-child{
+    border-right:0;
+    padding-left:24px;
+}
+
 .challenge-metric strong{
     display:block;
     font-family:Manrope;
     font-size:34px;
     letter-spacing:-.05em;
 }
+
 .challenge-metric span{
     display:block;
     margin-top:5px;
@@ -488,6 +493,7 @@ video{
     position:relative;
     overflow:hidden;
 }
+
 .service-media{
     height:250px;
     margin-bottom:30px;
@@ -495,6 +501,7 @@ video{
     overflow:hidden;
     background:#171717;
 }
+
 .service-media:after{
     content:"";
     position:absolute;
@@ -502,6 +509,7 @@ video{
     background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55));
     pointer-events:none;
 }
+
 .service-media .service-photo{
     position:absolute;
     inset:0;
@@ -510,10 +518,12 @@ video{
     filter:saturate(.8);
     transition:transform .8s ease,filter .5s ease;
 }
+
 .service:hover .service-photo{
     transform:scale(1.08);
     filter:saturate(1);
 }
+
 .service-number{
     position:absolute;
     z-index:3;
@@ -595,36 +605,19 @@ video{
 
 .map{
     height:620px;
-    background:#e5e3dd;
     position:relative;
     overflow:hidden;
+    background:#e5e3dd;
     box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);
 }
-.map-photo{
-    position:absolute;
-    inset:0;
-    background-size:cover;
-    background-position:center;
-    opacity:.1;
-    mix-blend-mode:normal;
- }
-.map {
-    position: relative;
-    overflow: hidden;
-    background: none;
-}
 
-.china-network-img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-    opacity: 1 !important;
-    filter: none !important;
-}
-
-.map-shape{
-    display:none;
+.china-network-img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+    opacity:1 !important;
+    filter:none !important;
 }
 
 .map-label{
@@ -648,9 +641,6 @@ video{
     padding:8px 11px;
     letter-spacing:.06em;
 }
-
-.
-
 
 .network-note{
     position:absolute;
@@ -678,19 +668,6 @@ video{
     display:grid;
     grid-template-columns:repeat(5,minmax(0,1fr));
     gap:12px;
-}
-
-/* Five product / service categories stay on one row on desktop. */
-@media(max-width:1100px){
-    .industry-grid{
-        grid-template-columns:repeat(3,minmax(0,1fr));
-    }
-}
-
-@media(max-width:760px){
-    .industry-grid{
-        grid-template-columns:1fr;
-    }
 }
 
 .industry{
@@ -746,37 +723,9 @@ video{
     line-height:1.7;
 }
 
-/*
- PHOTO POSITIONS:
-
- buildings.jpg
- furniture.jpg
- new-energy.jpg
- oem.jpg
- small-commodities.jpg
-
- 修改下面四个 background-image 即可。
-*/
-
-.building.png .industry-bg{
-    background-image:linear-gradient(135deg,#343434,#111);
-}
-
-.industry-furniture .industry-bg{
-    background-image:linear-gradient(135deg,#343434,#111);
-}
-
-.industry-new-energy .industry-bg{
-    background-image:linear-gradient(135deg,#343434,#111);
-}
-
-.industry-oem .industry-bg{
-    background-image:linear-gradient(135deg,#343434,#111);
-}
-
-.industry-Small-commodities .industry-bg{
-    background-image:linear-gradient(135deg,#343434,#111);
-}
+/* =========================================================
+   PROCUREMENT
+========================================================= */
 
 .procurement-section{
     background:#f4f4f1;
@@ -876,6 +825,7 @@ video{
     position:relative;
     overflow:hidden;
 }
+
 .process-photo{
     height:205px;
     margin-bottom:24px;
@@ -883,6 +833,7 @@ video{
     overflow:hidden;
     background:#161616;
 }
+
 .process-photo div{
     position:absolute;
     inset:0;
@@ -891,6 +842,7 @@ video{
     opacity:.8;
     transition:transform .8s ease,opacity .5s ease;
 }
+
 .process-step:hover .process-photo div{
     transform:scale(1.07);
     opacity:1;
@@ -931,12 +883,13 @@ video{
 
 .quality-photo{
     height:700px;
-    background:linear-gradient(135deg,#555,#151515);
+    background:#333;
     background-size:cover;
     background-position:center;
     position:relative;
     overflow:hidden;
 }
+
 .quality-photo:before{
     content:"ON-SITE / FACTORY QC";
     position:absolute;
@@ -1004,6 +957,7 @@ video{
     background-size:cover;
     background-position:center;
     transition:.7s;
+    position:relative;
 }
 
 .project:hover .project-image{
@@ -1032,22 +986,6 @@ video{
     line-height:1.7;
 }
 
-.project-sa .project-image{
-    background-image:url("assets/project-south-africa.jpg");
-}
-
-.project-id .project-image{
-    background-image:url("assets/project-indonesia.jpg");
-}
-
-.project-me .project-image{
-    background-image:url("assets/project-middle-east.png");
-}
-
-
-.project-image{
-    position:relative;
-}
 .project-image:after{
     content:"FIELD EXECUTION";
     position:absolute;
@@ -1107,10 +1045,9 @@ video{
 
 .founder-photo{
     height:650px;
-    background-image:linear-gradient(135deg,#333,#111);
+    background:#333;
     background-size:cover;
     background-position:center;
-    background-color:#333;
 }
 
 .founder-copy p{
@@ -1139,7 +1076,6 @@ video{
     font-size:9px;
 }
 
-
 .founder-quote{
     margin:34px 0;
     padding:24px 0 24px 24px;
@@ -1149,12 +1085,14 @@ video{
     line-height:1.35;
     letter-spacing:-.03em;
 }
+
 .founder-meta{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:10px;
     margin-top:30px;
 }
+
 .founder-meta div{
     border-top:1px solid #ddd;
     padding-top:12px;
@@ -1163,6 +1101,7 @@ video{
     text-transform:uppercase;
     letter-spacing:.1em;
 }
+
 .founder-meta strong{
     display:block;
     color:#111;
@@ -1295,6 +1234,16 @@ video{
     font-size:10px;
     text-transform:uppercase;
     letter-spacing:.1em;
+    transition:.3s;
+}
+
+.form button:hover{
+    background:#292929;
+}
+
+.form button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
 }
 
 /* =========================================================
@@ -1383,8 +1332,38 @@ video{
 }
 
 /* =========================================================
+   IMAGE
+========================================================= */
+
+.service-media,
+.process-photo{
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.service-media .service-photo,
+.process-photo div,
+.map-photo{
+    background-repeat:no-repeat;
+}
+
+.industry-bg[data-photo],
+.project-image[data-photo],
+.quality-photo[data-photo],
+.founder-photo[data-photo]{
+    background-repeat:no-repeat;
+}
+
+/* =========================================================
    MOBILE
 ========================================================= */
+
+@media(max-width:1100px){
+
+    .industry-grid{
+        grid-template-columns:repeat(3,minmax(0,1fr));
+    }
+
+}
 
 @media(max-width:1000px){
 
@@ -1427,12 +1406,32 @@ video{
         grid-template-columns:1fr 1fr;
     }
 
-    .service{min-height:440px;}
-    .service-media{height:210px;}
-    .process-photo{height:170px;}
-    .challenge-metrics{grid-template-columns:1fr;}
-    .challenge-metric{border-right:0;border-bottom:1px solid #ddd;padding:18px 0;}
-    .challenge-metric:last-child{border-bottom:0;padding-left:0;}
+    .service{
+        min-height:440px;
+    }
+
+    .service-media{
+        height:210px;
+    }
+
+    .process-photo{
+        height:170px;
+    }
+
+    .challenge-metrics{
+        grid-template-columns:1fr;
+    }
+
+    .challenge-metric{
+        border-right:0;
+        border-bottom:1px solid #ddd;
+        padding:18px 0;
+    }
+
+    .challenge-metric:last-child{
+        border-bottom:0;
+        padding-left:0;
+    }
 
     .service:nth-child(3n),
     .service:nth-child(3n+2){
@@ -1457,6 +1456,60 @@ video{
     .founder-photo,
     .quality-photo{
         height:550px;
+    }
+
+    .network{
+        gap:40px;
+    }
+
+}
+
+@media(max-width:900px){
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service:nth-child(3n),
+    .service:nth-child(3n+2){
+        padding-left:0;
+    }
+
+    .service{
+        border-right:0;
+        padding-right:0;
+    }
+
+    .service-media{
+        height:230px;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .process-step:not(:first-child){
+        padding-left:16px;
+    }
+
+    .process-step{
+        min-height:390px;
+    }
+
+    .process-photo{
+        height:190px;
+    }
+
+    .founder-meta{
+        grid-template-columns:1fr;
+    }
+
+}
+
+@media(max-width:760px){
+
+    .industry-grid{
+        grid-template-columns:1fr;
     }
 
 }
@@ -1512,10 +1565,6 @@ video{
         height:450px;
     }
 
-    .map-label{
-        font-size:65px;
-    }
-
     .video-box{
         height:60vh;
     }
@@ -1528,36 +1577,35 @@ video{
         grid-column:auto;
     }
 
-}
+    .procurement{
+        grid-template-columns:1fr;
+    }
 
+    .procurement-photo{
+        min-height:360px;
+    }
 
-/* =========================================================
-   V3.2 VISUAL REFINEMENTS
-========================================================= */
-.service-media,.process-photo{border:1px solid rgba(255,255,255,.08)}
-.service-media .service-photo,.process-photo div,.map-photo{background-repeat:no-repeat}
-.industry-bg[data-photo],.project-image[data-photo],.quality-photo[data-photo],.founder-photo[data-photo]{background-repeat:no-repeat}
-@media(max-width:900px){
-    .network{grid-template-columns:1fr;gap:40px}
-    .map{height:500px}
-    .service-grid{grid-template-columns:1fr}
-    .service:nth-child(3n),.service:nth-child(3n+2){padding-left:0}
-    .service{border-right:0;padding-right:0}
-    .service-media{height:230px}
-    .process-grid{grid-template-columns:1fr 1fr}
-    .process-step:not(:first-child){padding-left:16px}
-    .process-step{min-height:390px}
-    .process-photo{height:190px}
-    .founder-meta{grid-template-columns:1fr}
-}
-@media(max-width:600px){
-    .procurement{grid-template-columns:1fr}
-    .procurement-photo{min-height:360px}
-    .procurement-copy{padding:45px 25px}
-    .process-grid{grid-template-columns:1fr}
-    .process-step{padding-left:0!important;border-left:0!important}
-    .process-photo{height:220px}
-    .challenge-metrics{margin-top:30px}
+    .procurement-copy{
+        padding:45px 25px;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .process-step{
+        padding-left:0!important;
+        border-left:0!important;
+    }
+
+    .process-photo{
+        height:220px;
+    }
+
+    .challenge-metrics{
+        margin-top:30px;
+    }
+
 }
 
 </style>
@@ -1622,25 +1670,6 @@ video{
 
 <section class="hero" id="home">
 
-    <!--
-    ========================================================
-    【照片/视频位置 01】
-
-    文件：
-    assets/hero.mp4
-
-    内容建议：
-    中国工厂
-    生产线
-    产品
-    Max验货
-    装柜
-    港口
-
-    建议15-25秒
-    ========================================================
-    -->
-
     <video
         class="hero-video"
         autoplay
@@ -1679,8 +1708,7 @@ video{
         <div class="hero-buttons">
 
             <a href="#contact" class="btn btn-white">
-                Start Your Sourcing Project
-                →
+                Start Your Sourcing Project →
             </a>
 
             <a href="#solutions" class="btn btn-outline">
@@ -1755,9 +1783,22 @@ video{
             </p>
 
             <div class="challenge-metrics">
-                <div class="challenge-metric"><strong>01</strong><span>China-side partner</span></div>
-                <div class="challenge-metric"><strong>06</strong><span>Core supply chain steps</span></div>
-                <div class="challenge-metric"><strong>24/7</strong><span>Local coordination</span></div>
+
+                <div class="challenge-metric">
+                    <strong>01</strong>
+                    <span>China-side partner</span>
+                </div>
+
+                <div class="challenge-metric">
+                    <strong>06</strong>
+                    <span>Core supply chain steps</span>
+                </div>
+
+                <div class="challenge-metric">
+                    <strong>24/7</strong>
+                    <span>Local coordination</span>
+                </div>
+
             </div>
 
         </div>
@@ -1790,39 +1831,69 @@ video{
         <div class="service-grid">
 
             <article class="service reveal">
-                <div class="service-media"><div class="service-photo" data-photo="Source"></div><span class="service-number">01</span></div>
+                <div class="service-media">
+                    <div class="service-photo" data-photo="Source"></div>
+                    <span class="service-number">01</span>
+                </div>
                 <h3>Source</h3>
-                <p>Identify manufacturers across China's major industrial clusters based on your product and market requirements.</p>
+                <p>
+                    Identify manufacturers across China's major industrial clusters based on your product and market requirements.
+                </p>
             </article>
 
             <article class="service reveal">
-                <div class="service-media"><div class="service-photo" data-photo="Verify1"></div><span class="service-number">02</span></div>
+                <div class="service-media">
+                    <div class="service-photo" data-photo="Verify1"></div>
+                    <span class="service-number">02</span>
+                </div>
                 <h3>Verify</h3>
-                <p>Evaluate factories, capabilities, certifications, products and commercial reliability before you commit.</p>
+                <p>
+                    Evaluate factories, capabilities, certifications, products and commercial reliability before you commit.
+                </p>
             </article>
 
             <article class="service reveal">
-                <div class="service-media"><div class="service-photo" data-photo="Negotiate"></div><span class="service-number">03</span></div>
+                <div class="service-media">
+                    <div class="service-photo" data-photo="Negotiate"></div>
+                    <span class="service-number">03</span>
+                </div>
                 <h3>Negotiate</h3>
-                <p>Benchmark pricing, specifications, MOQ, packaging, payment terms and production schedules.</p>
+                <p>
+                    Benchmark pricing, specifications, MOQ, packaging, payment terms and production schedules.
+                </p>
             </article>
 
             <article class="service reveal">
-                <div class="service-media"><div class="service-photo" data-photo="Manufacture"></div><span class="service-number">04</span></div>
+                <div class="service-media">
+                    <div class="service-photo" data-photo="Manufacture"></div>
+                    <span class="service-number">04</span>
+                </div>
                 <h3>Manufacture</h3>
-                <p>Coordinate samples, product development, packaging and supplier communication throughout production.</p>
+                <p>
+                    Coordinate samples, product development, packaging and supplier communication throughout production.
+                </p>
             </article>
 
             <article class="service reveal">
-                <div class="service-media"><div class="service-photo" data-photo="quality-control"></div><span class="service-number">05</span></div>
+                <div class="service-media">
+                    <div class="service-photo" data-photo="quality-control"></div>
+                    <span class="service-number">05</span>
+                </div>
                 <h3>Inspect</h3>
-                <p>Build quality checkpoints into the production process before the goods leave the factory.</p>
+                <p>
+                    Build quality checkpoints into the production process before the goods leave the factory.
+                </p>
             </article>
 
             <article class="service reveal">
-                <div class="service-media"><div class="service-photo" data-photo="Inspect"></div><span class="service-number">06</span></div>
+                <div class="service-media">
+                    <div class="service-photo" data-photo="Inspect"></div>
+                    <span class="service-number">06</span>
+                </div>
                 <h3>Deliver</h3>
-                <p>Coordinate consolidation, loading, export documentation and international logistics.</p>
+                <p>
+                    Coordinate consolidation, loading, export documentation and international logistics.
+                </p>
             </article>
 
         </div>
@@ -1832,16 +1903,75 @@ video{
 </section>
 
 <!-- =========================================================
-    CHINA NETWORK
+     CHINA NETWORK
 ========================================================= -->
-<section class="section"> <div class="network reveal"> <div class="network-copy"> <div class="label"> THE CHINA ADVANTAGE </div> <h2 class="title"> One supply network. <span>Many industrial clusters.</span> </h2> <p> We connect international buyers with manufacturing resources where products are actually made. </p> <div class="locations"> <div class="location"> <strong>Foshan</strong> <span>Building Materials · Furniture</span> </div> <div class="location"> <strong>Qingdao</strong> <span>Industrial · Logistics</span> </div> 
 
-<div class="location"> <strong>Guangzhou</strong> <span>Hardware · Home Products</span> </div> <div class="location"> <strong>Yiwu</strong> <span>Small Commodities</span> </div> <div class="location"> <strong>Ningbo</strong> <span>Hardware · Electrical</span> </div> <div class="location"> <strong>Shenzhen</strong> <span>Technology · Electronics</span> </div> </div> </div> 
+<section class="section">
 
-<div class="map">
-    <img src="assets/china-network.png" class="china-network-img">
+    <div class="network reveal">
 
-       
+        <div class="network-copy">
+
+            <div class="label">
+                THE CHINA ADVANTAGE
+            </div>
+
+            <h2 class="title">
+                One supply network.
+                <span>Many industrial clusters.</span>
+            </h2>
+
+            <p>
+                We connect international buyers with manufacturing resources where products are actually made.
+            </p>
+
+            <div class="locations">
+
+                <div class="location">
+                    <strong>Foshan</strong>
+                    <span>Building Materials · Furniture</span>
+                </div>
+
+                <div class="location">
+                    <strong>Qingdao</strong>
+                    <span>Industrial · Logistics</span>
+                </div>
+
+                <div class="location">
+                    <strong>Guangzhou</strong>
+                    <span>Hardware · Home Products</span>
+                </div>
+
+                <div class="location">
+                    <strong>Yiwu</strong>
+                    <span>Small Commodities</span>
+                </div>
+
+                <div class="location">
+                    <strong>Ningbo</strong>
+                    <span>Hardware · Electrical</span>
+                </div>
+
+                <div class="location">
+                    <strong>Shenzhen</strong>
+                    <span>Technology · Electronics</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="map">
+
+            <img
+                src="assets/china-network.png"
+                class="china-network-img"
+                alt="China Supply Network">
+
+        </div>
+
+    </div>
+
 </section>
 
 <!-- =========================================================
@@ -1865,29 +1995,7 @@ video{
 
         </div>
 
-        <!--
-        FIVE PRODUCT / SERVICE PHOTO POSITIONS
-        01 data-photo="building"              Building Materials
-        02 data-photo="furniture"          Furniture & Living
-        03 data-photo="new-energy"         New Energy Products
-        04 data-photo="OEM2"                 OEM / ODM Projects
-        05 data-photo="Small-commodities"  Small-Commodities
-
-        Put the corresponding image in /assets.
-        The page tries PNG, JPG, JPEG and WEBP automatically.
-        -->
-
         <div class="industry-grid">
-
-            <!--
-            【照片位置 02】
-
-            assets/building.png / .jpg / .jpeg / .webp
-
-            推荐：
-            硅酮胶、PU Foam、美缝剂、门窗、
-            玻璃、地坪漆、建筑五金等
-            -->
 
             <a href="#contact"
                class="industry industry-building reveal">
@@ -1906,21 +2014,12 @@ video{
 
                     <p>
                         Sealants · Adhesives · Flooring ·
-                        Windows · Glass · Hardware· Tile
+                        Windows · Glass · Hardware · Tile
                     </p>
 
                 </div>
 
             </a>
-
-
-            <!--
-            【照片位置 03】
-
-            assets/furniture.jpg
-
-            儿童家具 / 家具工厂
-            -->
 
             <a href="#contact"
                class="industry industry-furniture reveal">
@@ -1946,14 +2045,6 @@ video{
 
             </a>
 
-
-            <!--
-            【照片位置 04】
-
-            assets/new-energy.png / .jpg / .jpeg / .webp
-            新能源产品展示
-            -->
-
             <a href="#contact"
                class="industry industry-new-energy reveal">
 
@@ -1978,15 +2069,6 @@ video{
 
             </a>
 
-
-            <!--
-            【照片位置 05】
-
-            assets/OEM.png / .jpg / .jpeg / .webp
-
-            OEM / ODM工厂照片
-            -->
-
             <a href="#contact"
                class="industry industry-oem reveal">
 
@@ -2010,13 +2092,6 @@ video{
                 </div>
 
             </a>
-
-            <!--
-            【照片位置 06】
-
-            assets/small-commodities.png / .jpg / .jpeg / .webp
-            小商品 / 日用百货 / 轻小件产品
-            -->
 
             <a href="#contact"
                class="industry industry-small reveal">
@@ -2077,11 +2152,32 @@ video{
             </p>
 
             <div class="procurement-list">
-                <div><span>01</span> Supplier sourcing & shortlisting</div>
-                <div><span>02</span> RFQ comparison & price negotiation</div>
-                <div><span>03</span> Sample approval & order follow-up</div>
-                <div><span>04</span> Quality control & pre-shipment inspection</div>
-                <div><span>05</span> Consolidation & export coordination</div>
+
+                <div>
+                    <span>01</span>
+                    Supplier sourcing & shortlisting
+                </div>
+
+                <div>
+                    <span>02</span>
+                    RFQ comparison & price negotiation
+                </div>
+
+                <div>
+                    <span>03</span>
+                    Sample approval & order follow-up
+                </div>
+
+                <div>
+                    <span>04</span>
+                    Quality control & pre-shipment inspection
+                </div>
+
+                <div>
+                    <span>05</span>
+                    Consolidation & export coordination
+                </div>
+
             </div>
 
             <a href="#contact" class="btn btn-dark">
@@ -2115,22 +2211,61 @@ video{
 
         </div>
 
-        <!--
-        PHOTO POSITIONS 07-12 · HOW IT WORKS
-
-        Each .process-photo below accepts a real image from /assets.
-        Change only data-photo="..." to change the image.
-        The loader automatically tries .png / .jpg / .jpeg / .webp.
-        -->
-
         <div class="process-grid">
 
-            <div class="process-step reveal"><div class="process-photo"><div data-photo="hero2"></div></div><span>01</span><h3>Brief</h3><p>Understand your product, market, quantity and target.</p></div>
-            <div class="process-step reveal"><div class="process-photo"><div data-photo="Source"></div></div><span>02</span><h3>Source</h3><p>Identify suitable factories and suppliers.</p></div>
-            <div class="process-step reveal"><div class="process-photo"><div data-photo="hero3"></div></div><span>03</span><h3>Validate</h3><p>Samples, specifications, factory verification and terms.</p></div>
-            <div class="process-step reveal"><div class="process-photo"><div data-photo="Verify"></div></div><span>04</span><h3>Produce</h3><p>Coordinate production, packaging and communication.</p></div>
-            <div class="process-step reveal"><div class="process-photo"><div data-photo="pre-shipment check"></div></div><span>05</span><h3>Inspect</h3><p>Quality checks before goods leave the factory.</p></div>
-            <div class="process-step reveal"><div class="process-photo"><div data-photo="ship"></div></div><span>06</span><h3>Ship</h3><p>Consolidation, loading and international logistics.</p></div>
+            <div class="process-step reveal">
+                <div class="process-photo">
+                    <div data-photo="hero2"></div>
+                </div>
+                <span>01</span>
+                <h3>Brief</h3>
+                <p>Understand your product, market, quantity and target.</p>
+            </div>
+
+            <div class="process-step reveal">
+                <div class="process-photo">
+                    <div data-photo="Source"></div>
+                </div>
+                <span>02</span>
+                <h3>Source</h3>
+                <p>Identify suitable factories and suppliers.</p>
+            </div>
+
+            <div class="process-step reveal">
+                <div class="process-photo">
+                    <div data-photo="hero3"></div>
+                </div>
+                <span>03</span>
+                <h3>Validate</h3>
+                <p>Samples, specifications, factory verification and terms.</p>
+            </div>
+
+            <div class="process-step reveal">
+                <div class="process-photo">
+                    <div data-photo="Verify"></div>
+                </div>
+                <span>04</span>
+                <h3>Produce</h3>
+                <p>Coordinate production, packaging and communication.</p>
+            </div>
+
+            <div class="process-step reveal">
+                <div class="process-photo">
+                    <div data-photo="pre-shipment check"></div>
+                </div>
+                <span>05</span>
+                <h3>Inspect</h3>
+                <p>Quality checks before goods leave the factory.</p>
+            </div>
+
+            <div class="process-step reveal">
+                <div class="process-photo">
+                    <div data-photo="ship"></div>
+                </div>
+                <span>06</span>
+                <h3>Ship</h3>
+                <p>Consolidation, loading and international logistics.</p>
+            </div>
 
         </div>
 
@@ -2142,29 +2277,14 @@ video{
      QUALITY
 ========================================================= -->
 
-<section class="section">
+<section class="section" id="quality">
 
     <div class="quality reveal">
-
-        <!--
-        【照片位置 06】
-
-        assets/quality-control.jpg
-
-        非常重要！
-
-        最好使用你本人在工厂：
-        验货 / 测量 / 检查包装 / 检查产品
-        的真实照片。
-        -->
 
         <div
             class="quality-photo"
             data-photo="hero3"
-            style="
-            background-image:
-            url('assets/hero3.png');
-            ">
+            style="background-image:url('assets/hero3.png');">
         </div>
 
         <div>
@@ -2248,15 +2368,12 @@ video{
 
         <div class="project-grid">
 
-            <!--
-            【照片位置 07】
-
-            assets/project-south-africa.jpg
-            -->
-
             <article class="project project-sa reveal">
 
-                <div class="project-image" data-photo="project-south-africa"></div>
+                <div
+                    class="project-image"
+                    data-photo="project-south-africa">
+                </div>
 
                 <div class="project-content">
 
@@ -2277,16 +2394,12 @@ video{
 
             </article>
 
-
-            <!--
-            【照片位置 08】
-
-            assets/project-indonesia.jpg
-            -->
-
             <article class="project project-id reveal">
 
-                <div class="project-image" data-photo="project-indonesia"></div>
+                <div
+                    class="project-image"
+                    data-photo="project-indonesia">
+                </div>
 
                 <div class="project-content">
 
@@ -2307,16 +2420,12 @@ video{
 
             </article>
 
-
-            <!--
-            【照片位置 09】
-
-            assets/project-middle-east.jpg
-            -->
-
             <article class="project project-me reveal">
 
-                <div class="project-image" data-photo="project-middle-east"></div>
+                <div
+                    class="project-image"
+                    data-photo="project-middle-east">
+                </div>
 
                 <div class="project-content">
 
@@ -2387,22 +2496,10 @@ video{
 
     <div class="founder reveal">
 
-        <!--
-        【照片位置 10】
-
-        assets/max.jpg
-
-        最重要的个人照片之一。
-
-        建议：
-        Max穿商务装
-        工厂背景
-        半身
-        4K
-        不要自拍
-        -->
-
-        <div class="founder-photo" data-photo="max"></div>
+        <div
+            class="founder-photo"
+            data-photo="max">
+        </div>
 
         <div class="founder-copy">
 
@@ -2434,9 +2531,22 @@ video{
             </div>
 
             <div class="founder-meta">
-                <div><strong>Qingdao</strong>Industrial · Logistics</div>
-                <div><strong>Foshan</strong>Building Materials · Furniture</div>
-                <div><strong>On the Ground</strong>China-side execution</div>
+
+                <div>
+                    <strong>Qingdao</strong>
+                    Industrial · Logistics
+                </div>
+
+                <div>
+                    <strong>Foshan</strong>
+                    Building Materials · Furniture
+                </div>
+
+                <div>
+                    <strong>On the Ground</strong>
+                    China-side execution
+                </div>
+
             </div>
 
             <div class="founder-name">
@@ -2480,31 +2590,6 @@ video{
 <section class="brand-video">
 
     <div class="video-box">
-
-        <!--
-        【视频位置 11】
-
-        assets/brand-film.mp4
-
-        15-30秒
-
-        内容：
-
-        Factory
-        ↓
-        Product
-        ↓
-        QC
-        ↓
-        Warehouse
-        ↓
-        Container
-        ↓
-        Port
-        ↓
-        World
-
-        -->
 
         <video
             autoplay
@@ -2583,24 +2668,34 @@ video{
 
         </div>
 
+        <!-- =================================================
+             WEBSITE FORM
+             CONNECTED TO GOOGLE FORMS
+        ================================================= -->
 
-        <form class="form" id="quoteForm">
+        <form
+            class="form"
+            id="quoteForm">
 
             <div class="form-row">
 
                 <label>
                     Full Name
+
                     <input
                         type="text"
                         name="name"
+                        autocomplete="name"
                         required>
                 </label>
 
                 <label>
                     Company
+
                     <input
                         type="text"
-                        name="company">
+                        name="company"
+                        autocomplete="organization">
                 </label>
 
             </div>
@@ -2609,26 +2704,32 @@ video{
 
                 <label>
                     Country
+
                     <input
                         type="text"
                         name="country"
+                        autocomplete="country-name"
                         required>
                 </label>
 
                 <label>
                     WhatsApp
+
                     <input
                         type="text"
-                        name="whatsapp">
+                        name="whatsapp"
+                        autocomplete="tel">
                 </label>
 
             </div>
 
             <label>
                 Email
+
                 <input
                     type="email"
                     name="email"
+                    autocomplete="email"
                     required>
             </label>
 
@@ -2639,31 +2740,31 @@ video{
 
                     <select name="category">
 
-                        <option>
+                        <option value="Building Materials">
                             Building Materials
                         </option>
 
-                        <option>
+                        <option value="Furniture & Living">
                             Furniture & Living
                         </option>
 
-                        <option>
+                        <option value="New Energy Products">
                             New Energy Products
                         </option>
 
-                        <option>
+                        <option value="OEM / ODM Projects">
                             OEM / ODM Projects
                         </option>
 
-                        <option>
+                        <option value="Small Commodities">
                             Small Commodities
                         </option>
 
-                        <option>
+                        <option value="Procurement Agency">
                             Procurement Agency
                         </option>
 
-                        <option>
+                        <option value="Other">
                             Other
                         </option>
 
@@ -2701,13 +2802,17 @@ video{
 
             </label>
 
-            <button type="submit">
-                Send Sourcing Request →
+            <button
+                type="submit"
+                id="submitButton">
+
+                SEND SOURCING REQUEST →
+
             </button>
 
             <p
                 id="formMessage"
-                style="font-size:10px;color:#777;margin-top:15px;">
+                style="font-size:10px;color:#777;margin-top:15px;min-height:15px;">
             </p>
 
         </form>
@@ -2773,11 +2878,10 @@ video{
             Email
         </a>
 
-        <!-- 修改这里的WhatsApp号码 -->
-
         <a
             href="https://wa.me/8615192515439"
-            target="_blank">
+            target="_blank"
+            rel="noopener">
 
             WhatsApp
 
@@ -2806,33 +2910,20 @@ video{
 
 </footer>
 
-
 <!-- =========================================================
      FLOATING WHATSAPP
 ========================================================= -->
-
-<!--
-修改下面的：
-
-86XXXXXXXXXX
-
-为你的真实WhatsApp号码。
-
-例如：
-
-8613812345678
--->
 
 <a
     class="whatsapp"
     href="https://wa.me/8615192515439"
     target="_blank"
+    rel="noopener"
     aria-label="WhatsApp">
 
     ☎
 
 </a>
-
 
 <!-- =========================================================
      JAVASCRIPT
@@ -2848,9 +2939,12 @@ window.addEventListener("load",function(){
 
     setTimeout(function(){
 
-        document
-        .getElementById("loader")
-        .classList.add("hide");
+        const loader =
+            document.getElementById("loader");
+
+        if(loader){
+            loader.classList.add("hide");
+        }
 
     },800);
 
@@ -2893,8 +2987,8 @@ new IntersectionObserver(
             if(entry.isIntersecting){
 
                 entry.target
-                .classList
-                .add("active");
+                    .classList
+                    .add("active");
 
             }
 
@@ -2909,8 +3003,8 @@ new IntersectionObserver(
 );
 
 document
-.querySelectorAll(".reveal")
-.forEach(el => observer.observe(el));
+    .querySelectorAll(".reveal")
+    .forEach(el => observer.observe(el));
 
 
 /* =========================================================
@@ -2918,9 +3012,9 @@ document
 ========================================================= */
 
 const counters =
-document.querySelectorAll("[data-number]");
+    document.querySelectorAll("[data-number]");
 
-let counterStarted=false;
+let counterStarted = false;
 
 const counterObserver =
 new IntersectionObserver(
@@ -2932,7 +3026,7 @@ new IntersectionObserver(
             !counterStarted
         ){
 
-            counterStarted=true;
+            counterStarted = true;
 
             counters.forEach(counter => {
 
@@ -2941,22 +3035,22 @@ new IntersectionObserver(
                         counter.dataset.number
                     );
 
-                let current=0;
+                let current = 0;
 
                 const step =
                     Math.max(
                         1,
-                        Math.ceil(target/40)
+                        Math.ceil(target / 40)
                     );
 
                 const timer =
-                    setInterval(()=>{
+                    setInterval(function(){
 
                         current += step;
 
-                        if(current>=target){
+                        if(current >= target){
 
-                            current=target;
+                            current = target;
 
                             clearInterval(timer);
 
@@ -2965,7 +3059,7 @@ new IntersectionObserver(
                         counter.textContent =
                             current +
                             (
-                                target===100
+                                target === 100
                                 ? "%"
                                 : "+"
                             );
@@ -3021,111 +3115,344 @@ function toggleLanguage(){
 
 /* =========================================================
    LOCAL IMAGE ASSET LOADER
-   Tries PNG/JPG/JPEG/WEBP so you do not need to rename files.
+   Automatically tries PNG / JPG / JPEG / WEBP
 ========================================================= */
+
 (function(){
-    const extensions=["png","jpg","jpeg","webp"];
 
-    document.querySelectorAll("[data-photo]").forEach(el=>{
-        const base=el.getAttribute("data-photo");
-        let i=0;
-        const tryNext=()=>{
-            if(i>=extensions.length)return;
-            const ext=extensions[i++];
-            const src="assets/"+base+"."+ext;
-            const img=new Image();
-            img.onload=()=>{el.style.backgroundImage=`url("${encodeURI(src)}")`;};
-            img.onerror=tryNext;
-            img.src=src;
-        };
-        tryNext();
-    });
+    const extensions = [
+        "png",
+        "jpg",
+        "jpeg",
+        "webp"
+    ];
 
-    // Hero poster: automatically finds PNG/JPG/JPEG/WEBP.
-    const hero=document.querySelector(".hero-video[data-poster-base]");
+    document
+        .querySelectorAll("[data-photo]")
+        .forEach(function(el){
+
+            const base =
+                el.getAttribute("data-photo");
+
+            let i = 0;
+
+            const tryNext = function(){
+
+                if(i >= extensions.length){
+                    return;
+                }
+
+                const ext =
+                    extensions[i++];
+
+                const src =
+                    "assets/" +
+                    base +
+                    "." +
+                    ext;
+
+                const img =
+                    new Image();
+
+                img.onload = function(){
+
+                    el.style.backgroundImage =
+                        'url("' +
+                        encodeURI(src) +
+                        '")';
+
+                };
+
+                img.onerror = tryNext;
+
+                img.src = src;
+
+            };
+
+            tryNext();
+
+        });
+
+
+    /* Hero poster */
+
+    const hero =
+        document.querySelector(
+            ".hero-video[data-poster-base]"
+        );
+
     if(hero){
-        const base=hero.dataset.posterBase;
-        let i=0;
-        const tryPoster=()=>{
-            if(i>=extensions.length)return;
-            const src="assets/"+base+"."+extensions[i++];
-            const img=new Image();
-            img.onload=()=>{hero.poster=src;};
-            img.onerror=tryPoster;
-            img.src=src;
+
+        const base =
+            hero.dataset.posterBase;
+
+        let i = 0;
+
+        const tryPoster = function(){
+
+            if(i >= extensions.length){
+                return;
+            }
+
+            const src =
+                "assets/" +
+                base +
+                "." +
+                extensions[i++];
+
+            const img =
+                new Image();
+
+            img.onload = function(){
+
+                hero.poster = src;
+
+            };
+
+            img.onerror = tryPoster;
+
+            img.src = src;
+
         };
+
         tryPoster();
+
     }
+
 })();
 
 
 /* =========================================================
    GOOGLE FORMS SOURCING REQUEST
-   Website form -> Google Forms -> Google Sheets
+   PAN-U VISION WEBSITE
+   WEBSITE FORM → GOOGLE FORM → GOOGLE SHEETS
 ========================================================= */
 
-const quoteForm = document.getElementById("quoteForm");
-const formMessage = document.getElementById("formMessage");
+const quoteForm =
+    document.getElementById("quoteForm");
 
-/* Hidden iframe keeps the visitor on the PAN-U VISION website. */
-const googleFormFrame = document.createElement("iframe");
-googleFormFrame.name = "googleFormTarget";
-googleFormFrame.style.display = "none";
-document.body.appendChild(googleFormFrame);
+const formMessage =
+    document.getElementById("formMessage");
 
-quoteForm.addEventListener("submit", function(e){
+const submitButton =
+    document.getElementById("submitButton");
 
-    e.preventDefault();
 
-    const data = new FormData(quoteForm);
+/*
+   Hidden iframe.
 
-    /* Build a real POST form for Google Forms. */
-    const googleForm = document.createElement("form");
-    googleForm.action =
-        "https://docs.google.com/forms/d/e/1FAIpQLSeg3ItUaZycid0T_H0sY6py-zHXm1AVR9khYkpJ3mkBT83RgQ/formResponse";
-    googleForm.method = "POST";
-    googleForm.target = "googleFormTarget";
-    googleForm.style.display = "none";
+   This allows the Google Form submission
+   to happen without taking the visitor
+   away from the PAN-U VISION website.
+*/
 
-    const fields = {
-        "entry.469767283": data.get("name") || "",
-        "entry.302178113": data.get("company") || "",
-        "entry.401213756": data.get("country") || "",
-        "entry.1540901517": data.get("whatsapp") || "",
-        "entry.1566523879": data.get("email") || "",
-        "entry.356660258": data.get("category") || "",
-        "entry.2136263631": data.get("quantity") || "",
-        "entry.1864453452": data.get("destination") || "",
-        "entry.59317575": data.get("message") || ""
-    };
+const googleFormFrame =
+    document.createElement("iframe");
 
-    Object.keys(fields).forEach(function(name){
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = name;
-        input.value = fields[name];
-        googleForm.appendChild(input);
-    });
+googleFormFrame.name =
+    "googleFormTarget";
 
-    document.body.appendChild(googleForm);
+googleFormFrame.style.display =
+    "none";
 
-    formMessage.textContent =
-        "Sending your sourcing request...";
+document.body.appendChild(
+    googleFormFrame
+);
 
-    /* Native form submission avoids the fetch/no-cors problem. */
-    HTMLFormElement.prototype.submit.call(googleForm);
 
-    setTimeout(function(){
+/* =========================================================
+   FORM SUBMIT
+========================================================= */
+
+quoteForm.addEventListener(
+    "submit",
+    function(e){
+
+        e.preventDefault();
+
+
+        /* Prevent multiple clicks */
+
+        if(submitButton.disabled){
+            return;
+        }
+
+
+        const data =
+            new FormData(quoteForm);
+
+
+        /* Disable button */
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+            "SENDING...";
+
+
+        /* =================================================
+           GOOGLE FORM SUBMISSION URL
+        ================================================= */
+
+        const googleForm =
+            document.createElement("form");
+
+        googleForm.action =
+            "https://docs.google.com/forms/d/e/1FAIpQLSeXDig9XRNq5jPsuVbgvkKkHedFgGfzwIs26TNYF8RYPdZMMw/formResponse";
+
+        googleForm.method =
+            "POST";
+
+        googleForm.target =
+            "googleFormTarget";
+
+        googleForm.style.display =
+            "none";
+
+
+        /* =================================================
+           GOOGLE FORM FIELD MAPPING
+
+           Full Name
+           entry.68405017
+
+           Company
+           entry.734667108
+
+           Country
+           entry.403534399
+
+           WhatsApp
+           entry.1072628727
+
+           Email
+           entry.741711629
+
+           Product Category
+           entry.1302869534
+
+           Estimated Quantity
+           entry.2052737106
+
+           Destination / Port
+           entry.129690115
+
+           What are you looking for?
+           entry.1484201385
+        ================================================= */
+
+        const fields = {
+
+            "entry.68405017":
+                data.get("name") || "",
+
+            "entry.734667108":
+                data.get("company") || "",
+
+            "entry.403534399":
+                data.get("country") || "",
+
+            "entry.1072628727":
+                data.get("whatsapp") || "",
+
+            "entry.741711629":
+                data.get("email") || "",
+
+            "entry.1302869534":
+                data.get("category") || "",
+
+            "entry.2052737106":
+                data.get("quantity") || "",
+
+            "entry.129690115":
+                data.get("destination") || "",
+
+            "entry.1484201385":
+                data.get("message") || ""
+
+        };
+
+
+        /* =================================================
+           CREATE HIDDEN INPUTS
+        ================================================= */
+
+        Object.keys(fields).forEach(
+            function(name){
+
+                const input =
+                    document.createElement("input");
+
+                input.type =
+                    "hidden";
+
+                input.name =
+                    name;
+
+                input.value =
+                    fields[name];
+
+                googleForm.appendChild(
+                    input
+                );
+
+            }
+        );
+
+
+        document.body.appendChild(
+            googleForm
+        );
+
+
+        /* =================================================
+           SHOW SENDING MESSAGE
+        ================================================= */
 
         formMessage.textContent =
-            "Thank you. Your sourcing request has been received. We will contact you shortly.";
+            "Sending your sourcing request...";
 
-        quoteForm.reset();
-        googleForm.remove();
 
-    }, 1500);
+        /* =================================================
+           SUBMIT TO GOOGLE FORMS
 
-});
+           Native submission is used instead of fetch()
+           because Google Forms blocks normal
+           cross-origin fetch requests.
+        ================================================= */
+
+        HTMLFormElement
+            .prototype
+            .submit
+            .call(googleForm);
+
+
+        /* =================================================
+           SUCCESS MESSAGE
+        ================================================= */
+
+        setTimeout(
+            function(){
+
+                formMessage.textContent =
+                    "Thank you. Your sourcing request has been received. We will contact you shortly.";
+
+                quoteForm.reset();
+
+                submitButton.disabled =
+                    false;
+
+                submitButton.textContent =
+                    "SEND SOURCING REQUEST →";
+
+                googleForm.remove();
+
+            },
+            1500
+        );
+
+    }
+);
 
 </script>
 
