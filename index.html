@@ -17,7 +17,8 @@ content="PAN-U VISION is a China-based sourcing and supply chain partner helping
 <style>
 
 /* =========================================================
-   PAN-U VISION V3.2
+   PAN-U VISION
+   FULL STABLE VERSION
 ========================================================= */
 
 :root{
@@ -89,6 +90,7 @@ video{
 .loader.hide{
     opacity:0;
     visibility:hidden;
+    pointer-events:none;
 }
 
 .loader-inner{
@@ -119,7 +121,9 @@ video{
 }
 
 @keyframes loading{
-    to{width:100%}
+    to{
+        width:100%;
+    }
 }
 
 /* =========================================================
@@ -219,6 +223,45 @@ video{
     color:white;
     border:0;
     font-size:24px;
+    cursor:pointer;
+}
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+.mobile-menu{
+    position:fixed;
+    inset:0;
+    background:#080808;
+    color:white;
+    z-index:2000;
+    display:none;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.mobile-menu.open{
+    display:flex;
+}
+
+.mobile-menu-close{
+    position:absolute;
+    top:25px;
+    right:6vw;
+    background:none;
+    color:white;
+    border:0;
+    font-size:30px;
+    cursor:pointer;
+}
+
+.mobile-menu a{
+    font-family:Manrope,sans-serif;
+    font-size:32px;
+    margin:12px 0;
+    letter-spacing:-.04em;
 }
 
 /* =========================================================
@@ -500,6 +543,7 @@ video{
     position:relative;
     overflow:hidden;
     background:#171717;
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .service-media:after{
@@ -515,6 +559,7 @@ video{
     inset:0;
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
     filter:saturate(.8);
     transition:transform .8s ease,filter .5s ease;
 }
@@ -685,6 +730,7 @@ video{
     inset:0;
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
     transition:transform .8s;
 }
 
@@ -741,6 +787,7 @@ video{
     min-height:560px;
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
     position:relative;
 }
 
@@ -832,6 +879,7 @@ video{
     position:relative;
     overflow:hidden;
     background:#161616;
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .process-photo div{
@@ -839,6 +887,7 @@ video{
     inset:0;
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
     opacity:.8;
     transition:transform .8s ease,opacity .5s ease;
 }
@@ -886,6 +935,7 @@ video{
     background:#333;
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
     position:relative;
     overflow:hidden;
 }
@@ -956,6 +1006,7 @@ video{
     height:370px;
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
     transition:.7s;
     position:relative;
 }
@@ -1048,6 +1099,7 @@ video{
     background:#333;
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
 }
 
 .founder-copy p{
@@ -1332,28 +1384,6 @@ video{
 }
 
 /* =========================================================
-   IMAGE
-========================================================= */
-
-.service-media,
-.process-photo{
-    border:1px solid rgba(255,255,255,.08);
-}
-
-.service-media .service-photo,
-.process-photo div,
-.map-photo{
-    background-repeat:no-repeat;
-}
-
-.industry-bg[data-photo],
-.project-image[data-photo],
-.quality-photo[data-photo],
-.founder-photo[data-photo]{
-    background-repeat:no-repeat;
-}
-
-/* =========================================================
    MOBILE
 ========================================================= */
 
@@ -1606,6 +1636,34 @@ video{
         margin-top:30px;
     }
 
+    .contact-info{
+        grid-template-columns:80px 1fr;
+    }
+
+    .hero-bottom{
+        bottom:25px;
+    }
+
+}
+
+/* =========================================================
+   ACCESSIBILITY / FALLBACK
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    html{
+        scroll-behavior:auto;
+    }
+
+    *,
+    *::before,
+    *::after{
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+        transition-duration:.01ms!important;
+    }
+
 }
 
 </style>
@@ -1618,13 +1676,21 @@ video{
 ========================================================= -->
 
 <div class="loader" id="loader">
+
     <div class="loader-inner">
-        <div class="loader-logo">PAN-U VISION</div>
+
+        <div class="loader-logo">
+            PAN-U VISION
+        </div>
+
         <div class="loader-line">
             <span></span>
         </div>
+
     </div>
+
 </div>
+
 
 <!-- =========================================================
      HEADER
@@ -1637,13 +1703,35 @@ video{
     </a>
 
     <nav class="nav">
-        <a href="#solutions">Solutions</a>
-        <a href="#procurement">Procurement</a>
-        <a href="#industries">Industries</a>
-        <a href="#process">Process</a>
-        <a href="#quality">Quality</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
+
+        <a href="#solutions">
+            Solutions
+        </a>
+
+        <a href="#procurement">
+            Procurement
+        </a>
+
+        <a href="#industries">
+            Industries
+        </a>
+
+        <a href="#process">
+            Process
+        </a>
+
+        <a href="#quality">
+            Quality
+        </a>
+
+        <a href="#projects">
+            Projects
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
     </nav>
 
     <div class="header-right">
@@ -1656,13 +1744,69 @@ video{
             Start a Project
         </a>
 
-        <button class="menu" onclick="openMenu()">
+        <button
+            class="menu"
+            onclick="openMenu()"
+            aria-label="Open menu">
+
             ☰
+
         </button>
 
     </div>
 
 </header>
+
+
+<!-- =========================================================
+     MOBILE MENU
+========================================================= -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+    <button
+        class="mobile-menu-close"
+        onclick="closeMenu()"
+        aria-label="Close menu">
+
+        ×
+
+    </button>
+
+    <a href="#solutions" onclick="closeMenu()">
+        Solutions
+    </a>
+
+    <a href="#procurement" onclick="closeMenu()">
+        Procurement
+    </a>
+
+    <a href="#industries" onclick="closeMenu()">
+        Industries
+    </a>
+
+    <a href="#process" onclick="closeMenu()">
+        Process
+    </a>
+
+    <a href="#quality" onclick="closeMenu()">
+        Quality
+    </a>
+
+    <a href="#projects" onclick="closeMenu()">
+        Projects
+    </a>
+
+    <a href="#about" onclick="closeMenu()">
+        About
+    </a>
+
+    <a href="#contact" onclick="closeMenu()">
+        Start a Project
+    </a>
+
+</div>
+
 
 <!-- =========================================================
      HERO
@@ -1700,19 +1844,29 @@ video{
         </h1>
 
         <p class="hero-description">
+
             PAN-U VISION helps international buyers source,
             verify, manufacture, inspect and ship products
             from China through one integrated supply chain.
+
         </p>
 
         <div class="hero-buttons">
 
-            <a href="#contact" class="btn btn-white">
+            <a
+                href="#contact"
+                class="btn btn-white">
+
                 Start Your Sourcing Project →
+
             </a>
 
-            <a href="#solutions" class="btn btn-outline">
+            <a
+                href="#solutions"
+                class="btn btn-outline">
+
                 Explore Solutions
+
             </a>
 
         </div>
@@ -1728,23 +1882,51 @@ video{
         <div class="hero-metrics">
 
             <div class="metric">
-                <strong>01</strong>
-                <span>Source</span>
+
+                <strong>
+                    01
+                </strong>
+
+                <span>
+                    Source
+                </span>
+
             </div>
 
             <div class="metric">
-                <strong>02</strong>
-                <span>Verify</span>
+
+                <strong>
+                    02
+                </strong>
+
+                <span>
+                    Verify
+                </span>
+
             </div>
 
             <div class="metric">
-                <strong>03</strong>
-                <span>Control</span>
+
+                <strong>
+                    03
+                </strong>
+
+                <span>
+                    Control
+                </span>
+
             </div>
 
             <div class="metric">
-                <strong>04</strong>
-                <span>Deliver</span>
+
+                <strong>
+                    04
+                </strong>
+
+                <span>
+                    Deliver
+                </span>
+
             </div>
 
         </div>
@@ -1752,6 +1934,7 @@ video{
     </div>
 
 </section>
+
 
 <!-- =========================================================
      INTRO
@@ -1762,41 +1945,71 @@ video{
     <div class="intro reveal">
 
         <div>
+
             <div class="label">
                 THE CHALLENGE
             </div>
+
         </div>
 
         <div class="intro-text">
 
             <h2 class="title">
+
                 China has thousands of suppliers.
-                <span>Finding the right one is the hard part.</span>
+
+                <span>
+                    Finding the right one is the hard part.
+                </span>
+
             </h2>
 
             <p>
+
                 The challenge isn't finding a factory.
                 It's finding the right factory, at the right
                 price, with the right quality — and managing
                 everything between the first conversation
                 and the final shipment.
+
             </p>
 
             <div class="challenge-metrics">
 
                 <div class="challenge-metric">
-                    <strong>01</strong>
-                    <span>China-side partner</span>
+
+                    <strong>
+                        01
+                    </strong>
+
+                    <span>
+                        China-side partner
+                    </span>
+
                 </div>
 
                 <div class="challenge-metric">
-                    <strong>06</strong>
-                    <span>Core supply chain steps</span>
+
+                    <strong>
+                        06
+                    </strong>
+
+                    <span>
+                        Core supply chain steps
+                    </span>
+
                 </div>
 
                 <div class="challenge-metric">
-                    <strong>24/7</strong>
-                    <span>Local coordination</span>
+
+                    <strong>
+                        24/7
+                    </strong>
+
+                    <span>
+                        Local coordination
+                    </span>
+
                 </div>
 
             </div>
@@ -1807,11 +2020,14 @@ video{
 
 </section>
 
+
 <!-- =========================================================
      SOLUTIONS
 ========================================================= -->
 
-<section class="section dark" id="solutions">
+<section
+    class="section dark"
+    id="solutions">
 
     <div class="container">
 
@@ -1822,8 +2038,13 @@ video{
             </div>
 
             <h2 class="title">
+
                 China sourcing
-                <span>without the guesswork.</span>
+
+                <span>
+                    without the guesswork.
+                </span>
+
             </h2>
 
         </div>
@@ -1831,69 +2052,158 @@ video{
         <div class="service-grid">
 
             <article class="service reveal">
+
                 <div class="service-media">
-                    <div class="service-photo" data-photo="Source"></div>
-                    <span class="service-number">01</span>
+
+                    <div
+                        class="service-photo"
+                        data-photo="Source">
+                    </div>
+
+                    <span class="service-number">
+                        01
+                    </span>
+
                 </div>
-                <h3>Source</h3>
+
+                <h3>
+                    Source
+                </h3>
+
                 <p>
                     Identify manufacturers across China's major industrial clusters based on your product and market requirements.
                 </p>
+
             </article>
 
+
             <article class="service reveal">
+
                 <div class="service-media">
-                    <div class="service-photo" data-photo="Verify1"></div>
-                    <span class="service-number">02</span>
+
+                    <div
+                        class="service-photo"
+                        data-photo="Verify1">
+                    </div>
+
+                    <span class="service-number">
+                        02
+                    </span>
+
                 </div>
-                <h3>Verify</h3>
+
+                <h3>
+                    Verify
+                </h3>
+
                 <p>
                     Evaluate factories, capabilities, certifications, products and commercial reliability before you commit.
                 </p>
+
             </article>
 
+
             <article class="service reveal">
+
                 <div class="service-media">
-                    <div class="service-photo" data-photo="Negotiate"></div>
-                    <span class="service-number">03</span>
+
+                    <div
+                        class="service-photo"
+                        data-photo="Negotiate">
+                    </div>
+
+                    <span class="service-number">
+                        03
+                    </span>
+
                 </div>
-                <h3>Negotiate</h3>
+
+                <h3>
+                    Negotiate
+                </h3>
+
                 <p>
                     Benchmark pricing, specifications, MOQ, packaging, payment terms and production schedules.
                 </p>
+
             </article>
 
+
             <article class="service reveal">
+
                 <div class="service-media">
-                    <div class="service-photo" data-photo="Manufacture"></div>
-                    <span class="service-number">04</span>
+
+                    <div
+                        class="service-photo"
+                        data-photo="Manufacture">
+                    </div>
+
+                    <span class="service-number">
+                        04
+                    </span>
+
                 </div>
-                <h3>Manufacture</h3>
+
+                <h3>
+                    Manufacture
+                </h3>
+
                 <p>
                     Coordinate samples, product development, packaging and supplier communication throughout production.
                 </p>
+
             </article>
 
+
             <article class="service reveal">
+
                 <div class="service-media">
-                    <div class="service-photo" data-photo="quality-control"></div>
-                    <span class="service-number">05</span>
+
+                    <div
+                        class="service-photo"
+                        data-photo="quality-control">
+                    </div>
+
+                    <span class="service-number">
+                        05
+                    </span>
+
                 </div>
-                <h3>Inspect</h3>
+
+                <h3>
+                    Inspect
+                </h3>
+
                 <p>
                     Build quality checkpoints into the production process before the goods leave the factory.
                 </p>
+
             </article>
 
+
             <article class="service reveal">
+
                 <div class="service-media">
-                    <div class="service-photo" data-photo="Inspect"></div>
-                    <span class="service-number">06</span>
+
+                    <div
+                        class="service-photo"
+                        data-photo="Inspect">
+                    </div>
+
+                    <span class="service-number">
+                        06
+                    </span>
+
                 </div>
-                <h3>Deliver</h3>
+
+                <h3>
+                    Deliver
+                </h3>
+
                 <p>
                     Coordinate consolidation, loading, export documentation and international logistics.
                 </p>
+
             </article>
 
         </div>
@@ -1901,6 +2211,7 @@ video{
     </div>
 
 </section>
+
 
 <!-- =========================================================
      CHINA NETWORK
@@ -1917,8 +2228,13 @@ video{
             </div>
 
             <h2 class="title">
+
                 One supply network.
-                <span>Many industrial clusters.</span>
+
+                <span>
+                    Many industrial clusters.
+                </span>
+
             </h2>
 
             <p>
@@ -1928,33 +2244,75 @@ video{
             <div class="locations">
 
                 <div class="location">
-                    <strong>Foshan</strong>
-                    <span>Building Materials · Furniture</span>
+
+                    <strong>
+                        Foshan
+                    </strong>
+
+                    <span>
+                        Building Materials · Furniture
+                    </span>
+
                 </div>
 
                 <div class="location">
-                    <strong>Qingdao</strong>
-                    <span>Industrial · Logistics</span>
+
+                    <strong>
+                        Qingdao
+                    </strong>
+
+                    <span>
+                        Industrial · Logistics
+                    </span>
+
                 </div>
 
                 <div class="location">
-                    <strong>Guangzhou</strong>
-                    <span>Hardware · Home Products</span>
+
+                    <strong>
+                        Guangzhou
+                    </strong>
+
+                    <span>
+                        Hardware · Home Products
+                    </span>
+
                 </div>
 
                 <div class="location">
-                    <strong>Yiwu</strong>
-                    <span>Small Commodities</span>
+
+                    <strong>
+                        Yiwu
+                    </strong>
+
+                    <span>
+                        Small Commodities
+                    </span>
+
                 </div>
 
                 <div class="location">
-                    <strong>Ningbo</strong>
-                    <span>Hardware · Electrical</span>
+
+                    <strong>
+                        Ningbo
+                    </strong>
+
+                    <span>
+                        Hardware · Electrical
+                    </span>
+
                 </div>
 
                 <div class="location">
-                    <strong>Shenzhen</strong>
-                    <span>Technology · Electronics</span>
+
+                    <strong>
+                        Shenzhen
+                    </strong>
+
+                    <span>
+                        Technology · Electronics
+                    </span>
+
                 </div>
 
             </div>
@@ -1968,17 +2326,24 @@ video{
                 class="china-network-img"
                 alt="China Supply Network">
 
+            <div class="network-note">
+                CHINA MANUFACTURING NETWORK
+            </div>
+
         </div>
 
     </div>
 
 </section>
 
+
 <!-- =========================================================
      INDUSTRIES
 ========================================================= -->
 
-<section class="section industries" id="industries">
+<section
+    class="section industries"
+    id="industries">
 
     <div class="container">
 
@@ -1989,23 +2354,36 @@ video{
             </div>
 
             <h2 class="title">
+
                 Built around industries
-                <span>we understand.</span>
+
+                <span>
+                    we understand.
+                </span>
+
             </h2>
 
         </div>
 
+
         <div class="industry-grid">
 
-            <a href="#contact"
-               class="industry industry-building reveal">
+            <a
+                href="#contact"
+                class="industry industry-building reveal">
 
-                <div class="industry-bg" data-photo="building"></div>
+                <div
+                    class="industry-bg"
+                    data-photo="building">
+                </div>
+
                 <div class="industry-overlay"></div>
 
                 <div class="industry-content">
 
-                    <small>01</small>
+                    <small>
+                        01
+                    </small>
 
                     <h3>
                         Building<br>
@@ -2021,15 +2399,23 @@ video{
 
             </a>
 
-            <a href="#contact"
-               class="industry industry-furniture reveal">
 
-                <div class="industry-bg" data-photo="furniture"></div>
+            <a
+                href="#contact"
+                class="industry industry-furniture reveal">
+
+                <div
+                    class="industry-bg"
+                    data-photo="furniture">
+                </div>
+
                 <div class="industry-overlay"></div>
 
                 <div class="industry-content">
 
-                    <small>02</small>
+                    <small>
+                        02
+                    </small>
 
                     <h3>
                         Furniture<br>
@@ -2045,15 +2431,23 @@ video{
 
             </a>
 
-            <a href="#contact"
-               class="industry industry-new-energy reveal">
 
-                <div class="industry-bg" data-photo="new-energy"></div>
+            <a
+                href="#contact"
+                class="industry industry-new-energy reveal">
+
+                <div
+                    class="industry-bg"
+                    data-photo="new-energy">
+                </div>
+
                 <div class="industry-overlay"></div>
 
                 <div class="industry-content">
 
-                    <small>03</small>
+                    <small>
+                        03
+                    </small>
 
                     <h3>
                         New Energy<br>
@@ -2069,15 +2463,23 @@ video{
 
             </a>
 
-            <a href="#contact"
-               class="industry industry-oem reveal">
 
-                <div class="industry-bg" data-photo="OEM"></div>
+            <a
+                href="#contact"
+                class="industry industry-oem reveal">
+
+                <div
+                    class="industry-bg"
+                    data-photo="OEM">
+                </div>
+
                 <div class="industry-overlay"></div>
 
                 <div class="industry-content">
 
-                    <small>04</small>
+                    <small>
+                        04
+                    </small>
 
                     <h3>
                         OEM / ODM<br>
@@ -2093,15 +2495,23 @@ video{
 
             </a>
 
-            <a href="#contact"
-               class="industry industry-small reveal">
 
-                <div class="industry-bg" data-photo="small-commodities"></div>
+            <a
+                href="#contact"
+                class="industry industry-small reveal">
+
+                <div
+                    class="industry-bg"
+                    data-photo="small-commodities">
+                </div>
+
                 <div class="industry-overlay"></div>
 
                 <div class="industry-content">
 
-                    <small>05</small>
+                    <small>
+                        05
+                    </small>
 
                     <h3>
                         Small<br>
@@ -2123,15 +2533,21 @@ video{
 
 </section>
 
+
 <!-- =========================================================
-     PROCUREMENT AGENCY
+     PROCUREMENT
 ========================================================= -->
 
-<section class="section procurement-section" id="procurement">
+<section
+    class="section procurement-section"
+    id="procurement">
 
     <div class="procurement reveal">
 
-        <div class="procurement-photo" data-photo="OEM1"></div>
+        <div
+            class="procurement-photo"
+            data-photo="OEM1">
+        </div>
 
         <div class="procurement-copy">
 
@@ -2140,8 +2556,13 @@ video{
             </div>
 
             <h2 class="title">
+
                 Your purchasing team
-                <span>on the ground in China.</span>
+
+                <span>
+                    on the ground in China.
+                </span>
+
             </h2>
 
             <p>
@@ -2180,8 +2601,12 @@ video{
 
             </div>
 
-            <a href="#contact" class="btn btn-dark">
+            <a
+                href="#contact"
+                class="btn btn-dark">
+
                 Discuss Procurement Support →
+
             </a>
 
         </div>
@@ -2190,11 +2615,14 @@ video{
 
 </section>
 
+
 <!-- =========================================================
      PROCESS
 ========================================================= -->
 
-<section class="section dark" id="process">
+<section
+    class="section dark"
+    id="process">
 
     <div class="container">
 
@@ -2205,8 +2633,13 @@ video{
             </div>
 
             <h2 class="title">
+
                 From requirement
-                <span>to shipment.</span>
+
+                <span>
+                    to shipment.
+                </span>
+
             </h2>
 
         </div>
@@ -2214,57 +2647,152 @@ video{
         <div class="process-grid">
 
             <div class="process-step reveal">
+
                 <div class="process-photo">
-                    <div data-photo="hero2"></div>
+
+                    <div
+                        data-photo="hero2">
+                    </div>
+
                 </div>
-                <span>01</span>
-                <h3>Brief</h3>
-                <p>Understand your product, market, quantity and target.</p>
+
+                <span>
+                    01
+                </span>
+
+                <h3>
+                    Brief
+                </h3>
+
+                <p>
+                    Understand your product, market, quantity and target.
+                </p>
+
             </div>
 
-            <div class="process-step reveal">
-                <div class="process-photo">
-                    <div data-photo="Source"></div>
-                </div>
-                <span>02</span>
-                <h3>Source</h3>
-                <p>Identify suitable factories and suppliers.</p>
-            </div>
 
             <div class="process-step reveal">
+
                 <div class="process-photo">
-                    <div data-photo="hero3"></div>
+
+                    <div
+                        data-photo="Source">
+                    </div>
+
                 </div>
-                <span>03</span>
-                <h3>Validate</h3>
-                <p>Samples, specifications, factory verification and terms.</p>
+
+                <span>
+                    02
+                </span>
+
+                <h3>
+                    Source
+                </h3>
+
+                <p>
+                    Identify suitable factories and suppliers.
+                </p>
+
             </div>
 
-            <div class="process-step reveal">
-                <div class="process-photo">
-                    <div data-photo="Verify"></div>
-                </div>
-                <span>04</span>
-                <h3>Produce</h3>
-                <p>Coordinate production, packaging and communication.</p>
-            </div>
 
             <div class="process-step reveal">
+
                 <div class="process-photo">
-                    <div data-photo="pre-shipment check"></div>
+
+                    <div
+                        data-photo="hero3">
+                    </div>
+
                 </div>
-                <span>05</span>
-                <h3>Inspect</h3>
-                <p>Quality checks before goods leave the factory.</p>
+
+                <span>
+                    03
+                </span>
+
+                <h3>
+                    Validate
+                </h3>
+
+                <p>
+                    Samples, specifications, factory verification and terms.
+                </p>
+
             </div>
 
+
             <div class="process-step reveal">
+
                 <div class="process-photo">
-                    <div data-photo="ship"></div>
+
+                    <div
+                        data-photo="Verify">
+                    </div>
+
                 </div>
-                <span>06</span>
-                <h3>Ship</h3>
-                <p>Consolidation, loading and international logistics.</p>
+
+                <span>
+                    04
+                </span>
+
+                <h3>
+                    Produce
+                </h3>
+
+                <p>
+                    Coordinate production, packaging and communication.
+                </p>
+
+            </div>
+
+
+            <div class="process-step reveal">
+
+                <div class="process-photo">
+
+                    <div
+                        data-photo="pre-shipment check">
+                    </div>
+
+                </div>
+
+                <span>
+                    05
+                </span>
+
+                <h3>
+                    Inspect
+                </h3>
+
+                <p>
+                    Quality checks before goods leave the factory.
+                </p>
+
+            </div>
+
+
+            <div class="process-step reveal">
+
+                <div class="process-photo">
+
+                    <div
+                        data-photo="ship">
+                    </div>
+
+                </div>
+
+                <span>
+                    06
+                </span>
+
+                <h3>
+                    Ship
+                </h3>
+
+                <p>
+                    Consolidation, loading and international logistics.
+                </p>
+
             </div>
 
         </div>
@@ -2273,11 +2801,14 @@ video{
 
 </section>
 
+
 <!-- =========================================================
      QUALITY
 ========================================================= -->
 
-<section class="section" id="quality">
+<section
+    class="section"
+    id="quality">
 
     <div class="quality reveal">
 
@@ -2294,8 +2825,13 @@ video{
             </div>
 
             <h2 class="title">
+
                 Quality is not a promise.
-                <span>It's a process.</span>
+
+                <span>
+                    It's a process.
+                </span>
+
             </h2>
 
             <p>
@@ -2345,11 +2881,14 @@ video{
 
 </section>
 
+
 <!-- =========================================================
      PROJECTS
 ========================================================= -->
 
-<section class="section dark" id="projects">
+<section
+    class="section dark"
+    id="projects">
 
     <div class="container">
 
@@ -2360,8 +2899,13 @@ video{
             </div>
 
             <h2 class="title">
+
                 Real factories.
-                <span>Real supply chains.</span>
+
+                <span>
+                    Real supply chains.
+                </span>
+
             </h2>
 
         </div>
@@ -2394,6 +2938,7 @@ video{
 
             </article>
 
+
             <article class="project project-id reveal">
 
                 <div
@@ -2419,6 +2964,7 @@ video{
                 </div>
 
             </article>
+
 
             <article class="project project-me reveal">
 
@@ -2452,6 +2998,7 @@ video{
 
 </section>
 
+
 <!-- =========================================================
      NUMBERS
 ========================================================= -->
@@ -2463,23 +3010,51 @@ video{
         <div class="numbers reveal">
 
             <div class="number">
-                <strong data-number="50">0+</strong>
-                <span>Factories & Suppliers</span>
+
+                <strong data-number="50">
+                    0+
+                </strong>
+
+                <span>
+                    Factories & Suppliers
+                </span>
+
             </div>
 
             <div class="number">
-                <strong data-number="10">0+</strong>
-                <span>Product Categories</span>
+
+                <strong data-number="10">
+                    0+
+                </strong>
+
+                <span>
+                    Product Categories
+                </span>
+
             </div>
 
             <div class="number">
-                <strong data-number="8">0+</strong>
-                <span>Markets Served</span>
+
+                <strong data-number="8">
+                    0+
+                </strong>
+
+                <span>
+                    Markets Served
+                </span>
+
             </div>
 
             <div class="number">
-                <strong data-number="100">0%</strong>
-                <span>Process Transparency</span>
+
+                <strong data-number="100">
+                    0%
+                </strong>
+
+                <span>
+                    Process Transparency
+                </span>
+
             </div>
 
         </div>
@@ -2488,11 +3063,14 @@ video{
 
 </section>
 
+
 <!-- =========================================================
      FOUNDER
 ========================================================= -->
 
-<section class="section" id="about">
+<section
+    class="section"
+    id="about">
 
     <div class="founder reveal">
 
@@ -2508,8 +3086,13 @@ video{
             </div>
 
             <h2 class="title">
+
                 Not just a sourcing agent.
-                <span>A partner on the ground.</span>
+
+                <span>
+                    A partner on the ground.
+                </span>
+
             </h2>
 
             <p>
@@ -2527,24 +3110,43 @@ video{
             </p>
 
             <div class="founder-quote">
-                “Your supplier is not the supply chain. The supply chain is everything between the requirement and the shipment.”
+
+                “Your supplier is not the supply chain.
+                The supply chain is everything between
+                the requirement and the shipment.”
+
             </div>
 
             <div class="founder-meta">
 
                 <div>
-                    <strong>Qingdao</strong>
+
+                    <strong>
+                        Qingdao
+                    </strong>
+
                     Industrial · Logistics
+
                 </div>
 
                 <div>
-                    <strong>Foshan</strong>
+
+                    <strong>
+                        Foshan
+                    </strong>
+
                     Building Materials · Furniture
+
                 </div>
 
                 <div>
-                    <strong>On the Ground</strong>
+
+                    <strong>
+                        On the Ground
+                    </strong>
+
                     China-side execution
+
                 </div>
 
             </div>
@@ -2583,6 +3185,7 @@ video{
 
 </section>
 
+
 <!-- =========================================================
      BRAND VIDEO
 ========================================================= -->
@@ -2596,6 +3199,7 @@ video{
             muted
             loop
             playsinline
+            preload="metadata"
             poster="assets/brand-film.jpg">
 
             <source
@@ -2611,8 +3215,13 @@ video{
             </div>
 
             <h2>
+
                 Built in China.
-                <span>Delivered to the world.</span>
+
+                <span>
+                    Delivered to the world.
+                </span>
+
             </h2>
 
         </div>
@@ -2621,11 +3230,14 @@ video{
 
 </section>
 
+
 <!-- =========================================================
      CONTACT
 ========================================================= -->
 
-<section class="section" id="contact">
+<section
+    class="section"
+    id="contact">
 
     <div class="contact reveal">
 
@@ -2636,30 +3248,56 @@ video{
             </div>
 
             <h2 class="title">
+
                 Tell us what
-                <span>you're looking for.</span>
+
+                <span>
+                    you're looking for.
+                </span>
+
             </h2>
 
             <p>
+
                 Tell us about your product, target market,
                 quantity and destination. We'll come back
                 with the next practical step.
+
             </p>
 
             <div class="contact-info">
 
-                <span>Contact</span>
-                <strong>Max Zane</strong>
+                <span>
+                    Contact
+                </span>
 
-                <span>WhatsApp / Phone</span>
-                <strong>+86 15192515439</strong>
+                <strong>
+                    Max Zane
+                </strong>
 
-                <span>Email</span>
+
+                <span>
+                    WhatsApp / Phone
+                </span>
+
+                <strong>
+                    +86 15192515439
+                </strong>
+
+
+                <span>
+                    Email
+                </span>
+
                 <strong>
                     zane15192515439@gmail.com
                 </strong>
 
-                <span>China</span>
+
+                <span>
+                    China
+                </span>
+
                 <strong>
                     Qingdao · Foshan
                 </strong>
@@ -2667,6 +3305,7 @@ video{
             </div>
 
         </div>
+
 
         <!-- =================================================
              WEBSITE FORM
@@ -2680,6 +3319,7 @@ video{
             <div class="form-row">
 
                 <label>
+
                     Full Name
 
                     <input
@@ -2687,22 +3327,28 @@ video{
                         name="name"
                         autocomplete="name"
                         required>
+
                 </label>
 
+
                 <label>
+
                     Company
 
                     <input
                         type="text"
                         name="company"
                         autocomplete="organization">
+
                 </label>
 
             </div>
 
+
             <div class="form-row">
 
                 <label>
+
                     Country
 
                     <input
@@ -2710,20 +3356,26 @@ video{
                         name="country"
                         autocomplete="country-name"
                         required>
+
                 </label>
 
+
                 <label>
+
                     WhatsApp
 
                     <input
                         type="text"
                         name="whatsapp"
                         autocomplete="tel">
+
                 </label>
 
             </div>
 
+
             <label>
+
                 Email
 
                 <input
@@ -2731,11 +3383,14 @@ video{
                     name="email"
                     autocomplete="email"
                     required>
+
             </label>
+
 
             <div class="form-row">
 
                 <label>
+
                     Product Category
 
                     <select name="category">
@@ -2772,7 +3427,9 @@ video{
 
                 </label>
 
+
                 <label>
+
                     Estimated Quantity
 
                     <input
@@ -2783,7 +3440,9 @@ video{
 
             </div>
 
+
             <label>
+
                 Destination / Port
 
                 <input
@@ -2792,7 +3451,9 @@ video{
 
             </label>
 
+
             <label>
+
                 What are you looking for?
 
                 <textarea
@@ -2802,6 +3463,7 @@ video{
 
             </label>
 
+
             <button
                 type="submit"
                 id="submitButton">
@@ -2809,6 +3471,7 @@ video{
                 SEND SOURCING REQUEST →
 
             </button>
+
 
             <p
                 id="formMessage"
@@ -2820,6 +3483,7 @@ video{
     </div>
 
 </section>
+
 
 <!-- =========================================================
      FOOTER
@@ -2840,9 +3504,12 @@ video{
 
     </div>
 
+
     <div>
 
-        <h4>EXPLORE</h4>
+        <h4>
+            EXPLORE
+        </h4>
 
         <a href="#solutions">
             Solutions
@@ -2866,9 +3533,12 @@ video{
 
     </div>
 
+
     <div>
 
-        <h4>CONNECT</h4>
+        <h4>
+            CONNECT
+        </h4>
 
         <a href="#contact">
             Start a Project
@@ -2889,9 +3559,12 @@ video{
 
     </div>
 
+
     <div>
 
-        <h4>CHINA</h4>
+        <h4>
+            CHINA
+        </h4>
 
         <p>
             Qingdao<br>
@@ -2901,6 +3574,7 @@ video{
 
     </div>
 
+
     <div class="footer-bottom">
 
         © 2026 PAN-U VISION Supply Chain Technology
@@ -2909,6 +3583,7 @@ video{
     </div>
 
 </footer>
+
 
 <!-- =========================================================
      FLOATING WHATSAPP
@@ -2925,6 +3600,7 @@ video{
 
 </a>
 
+
 <!-- =========================================================
      JAVASCRIPT
 ========================================================= -->
@@ -2935,30 +3611,60 @@ video{
    LOADER
 ========================================================= */
 
-window.addEventListener("load",function(){
+function hideLoader(){
+
+    const loader =
+        document.getElementById("loader");
+
+    if(loader){
+
+        loader.classList.add("hide");
+
+    }
+
+}
+
+
+/*
+   Normal loading
+*/
+
+window.addEventListener("load", function(){
 
     setTimeout(function(){
 
-        const loader =
-            document.getElementById("loader");
+        hideLoader();
 
-        if(loader){
-            loader.classList.add("hide");
-        }
-
-    },800);
+    }, 500);
 
 });
+
+
+/*
+   Safety fallback.
+   Even if a video/image is slow,
+   the website will not stay on the loader forever.
+*/
+
+setTimeout(function(){
+
+    hideLoader();
+
+}, 4000);
 
 
 /* =========================================================
    HEADER
 ========================================================= */
 
-window.addEventListener("scroll",function(){
+function updateHeader(){
 
     const header =
         document.getElementById("header");
+
+    if(!header){
+        return;
+    }
 
     if(window.scrollY > 60){
 
@@ -2970,121 +3676,15 @@ window.addEventListener("scroll",function(){
 
     }
 
-});
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-const observer =
-new IntersectionObserver(
-
-    entries => {
-
-        entries.forEach(entry => {
-
-            if(entry.isIntersecting){
-
-                entry.target
-                    .classList
-                    .add("active");
-
-            }
-
-        });
-
-    },
-
-    {
-        threshold:.12
-    }
-
-);
-
-document
-    .querySelectorAll(".reveal")
-    .forEach(el => observer.observe(el));
-
-
-/* =========================================================
-   NUMBER COUNTER
-========================================================= */
-
-const counters =
-    document.querySelectorAll("[data-number]");
-
-let counterStarted = false;
-
-const counterObserver =
-new IntersectionObserver(
-
-    entries => {
-
-        if(
-            entries[0].isIntersecting &&
-            !counterStarted
-        ){
-
-            counterStarted = true;
-
-            counters.forEach(counter => {
-
-                const target =
-                    Number(
-                        counter.dataset.number
-                    );
-
-                let current = 0;
-
-                const step =
-                    Math.max(
-                        1,
-                        Math.ceil(target / 40)
-                    );
-
-                const timer =
-                    setInterval(function(){
-
-                        current += step;
-
-                        if(current >= target){
-
-                            current = target;
-
-                            clearInterval(timer);
-
-                        }
-
-                        counter.textContent =
-                            current +
-                            (
-                                target === 100
-                                ? "%"
-                                : "+"
-                            );
-
-                    },30);
-
-            });
-
-        }
-
-    },
-
-    {
-        threshold:.5
-    }
-
-);
-
-if(counters.length){
-
-    counterObserver.observe(
-        counters[0].parentElement.parentElement
-    );
-
 }
+
+window.addEventListener(
+    "scroll",
+    updateHeader,
+    {passive:true}
+);
+
+updateHeader();
 
 
 /* =========================================================
@@ -3093,9 +3693,32 @@ if(counters.length){
 
 function openMenu(){
 
-    alert(
-        "Mobile navigation: connect this button to your preferred mobile menu."
-    );
+    const menu =
+        document.getElementById("mobileMenu");
+
+    if(menu){
+
+        menu.classList.add("open");
+
+        document.body.classList.add("menu-open");
+
+    }
+
+}
+
+
+function closeMenu(){
+
+    const menu =
+        document.getElementById("mobileMenu");
+
+    if(menu){
+
+        menu.classList.remove("open");
+
+        document.body.classList.remove("menu-open");
+
+    }
 
 }
 
@@ -3107,15 +3730,179 @@ function openMenu(){
 function toggleLanguage(){
 
     alert(
-        "V3 can connect this button to a full English / Chinese language system."
+        "English / Chinese language system can be connected here."
     );
 
 }
 
 
 /* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+if("IntersectionObserver" in window){
+
+    const observer =
+        new IntersectionObserver(
+
+            function(entries){
+
+                entries.forEach(function(entry){
+
+                    if(entry.isIntersecting){
+
+                        entry.target.classList.add("active");
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold:0.12
+            }
+
+        );
+
+
+    revealElements.forEach(function(el){
+
+        observer.observe(el);
+
+    });
+
+}else{
+
+    revealElements.forEach(function(el){
+
+        el.classList.add("active");
+
+    });
+
+}
+
+
+/* =========================================================
+   NUMBER COUNTER
+========================================================= */
+
+const counters =
+    document.querySelectorAll("[data-number]");
+
+let counterStarted = false;
+
+
+if(
+    counters.length &&
+    "IntersectionObserver" in window
+){
+
+    const counterObserver =
+        new IntersectionObserver(
+
+            function(entries){
+
+                if(
+                    entries[0].isIntersecting &&
+                    !counterStarted
+                ){
+
+                    counterStarted = true;
+
+                    counters.forEach(function(counter){
+
+                        const target =
+                            Number(
+                                counter.dataset.number
+                            );
+
+                        let current = 0;
+
+                        const step =
+                            Math.max(
+                                1,
+                                Math.ceil(target / 40)
+                            );
+
+                        const timer =
+                            setInterval(function(){
+
+                                current += step;
+
+                                if(current >= target){
+
+                                    current = target;
+
+                                    clearInterval(timer);
+
+                                }
+
+                                counter.textContent =
+                                    current +
+                                    (
+                                        target === 100
+                                        ? "%"
+                                        : "+"
+                                    );
+
+                            },30);
+
+                    });
+
+                }
+
+            },
+
+            {
+                threshold:0.5
+            }
+
+        );
+
+
+    const numbersSection =
+        counters[0].closest(".numbers");
+
+
+    if(numbersSection){
+
+        counterObserver.observe(
+            numbersSection
+        );
+
+    }
+
+}else{
+
+    counters.forEach(function(counter){
+
+        const target =
+            Number(
+                counter.dataset.number
+            );
+
+        counter.textContent =
+            target +
+            (
+                target === 100
+                ? "%"
+                : "+"
+            );
+
+    });
+
+}
+
+
+/* =========================================================
    LOCAL IMAGE ASSET LOADER
-   Automatically tries PNG / JPG / JPEG / WEBP
+   Automatically tries:
+   PNG / JPG / JPEG / WEBP
 ========================================================= */
 
 (function(){
@@ -3127,81 +3914,116 @@ function toggleLanguage(){
         "webp"
     ];
 
-    document
-        .querySelectorAll("[data-photo]")
-        .forEach(function(el){
 
-            const base =
-                el.getAttribute("data-photo");
+    const photoElements =
+        document.querySelectorAll(
+            "[data-photo]"
+        );
 
-            let i = 0;
 
-            const tryNext = function(){
+    photoElements.forEach(function(el){
 
-                if(i >= extensions.length){
-                    return;
-                }
+        const base =
+            el.getAttribute("data-photo");
 
-                const ext =
-                    extensions[i++];
 
-                const src =
-                    "assets/" +
-                    base +
-                    "." +
-                    ext;
+        if(!base){
+            return;
+        }
 
-                const img =
-                    new Image();
 
-                img.onload = function(){
+        let index = 0;
 
-                    el.style.backgroundImage =
-                        'url("' +
-                        encodeURI(src) +
-                        '")';
 
-                };
+        function tryNext(){
 
-                img.onerror = tryNext;
+            if(index >= extensions.length){
 
-                img.src = src;
+                return;
+
+            }
+
+
+            const extension =
+                extensions[index++];
+
+
+            const src =
+                "assets/" +
+                base +
+                "." +
+                extension;
+
+
+            const img =
+                new Image();
+
+
+            img.onload = function(){
+
+                el.style.backgroundImage =
+                    'url("' +
+                    encodeURI(src) +
+                    '")';
 
             };
 
-            tryNext();
 
-        });
+            img.onerror = function(){
+
+                tryNext();
+
+            };
 
 
-    /* Hero poster */
+            img.src = src;
+
+        }
+
+
+        tryNext();
+
+    });
+
+
+    /* =====================================================
+       HERO POSTER
+    ===================================================== */
 
     const hero =
         document.querySelector(
             ".hero-video[data-poster-base]"
         );
 
+
     if(hero){
 
         const base =
             hero.dataset.posterBase;
 
-        let i = 0;
 
-        const tryPoster = function(){
+        let index = 0;
 
-            if(i >= extensions.length){
+
+        function tryHeroPoster(){
+
+            if(index >= extensions.length){
+
                 return;
+
             }
+
 
             const src =
                 "assets/" +
                 base +
                 "." +
-                extensions[i++];
+                extensions[index++];
+
 
             const img =
                 new Image();
+
 
             img.onload = function(){
 
@@ -3209,13 +4031,20 @@ function toggleLanguage(){
 
             };
 
-            img.onerror = tryPoster;
+
+            img.onerror = function(){
+
+                tryHeroPoster();
+
+            };
+
 
             img.src = src;
 
-        };
+        }
 
-        tryPoster();
+
+        tryHeroPoster();
 
     }
 
@@ -3223,202 +4052,328 @@ function toggleLanguage(){
 
 
 /* =========================================================
-   PAN-U VISION
    GOOGLE FORMS SUBMISSION
-   CUSTOMER STAYS ON WEBSITE
+   CUSTOMER STAYS ON PAN-U VISION WEBSITE
 ========================================================= */
 
-const quoteForm = document.getElementById("quoteForm");
-const formMessage = document.getElementById("formMessage");
-const submitButton = document.getElementById("submitButton");
+const quoteForm =
+    document.getElementById("quoteForm");
 
-/* ---------------------------------------------------------
-   Create invisible iframe
-   Google Form will receive the submission here.
-   Customer will NOT leave this website.
---------------------------------------------------------- */
+const formMessage =
+    document.getElementById("formMessage");
 
-const googleFormFrame = document.createElement("iframe");
-
-googleFormFrame.name = "panUHiddenGoogleForm";
-googleFormFrame.id = "panUHiddenGoogleForm";
-
-googleFormFrame.style.position = "fixed";
-googleFormFrame.style.width = "1px";
-googleFormFrame.style.height = "1px";
-googleFormFrame.style.border = "0";
-googleFormFrame.style.opacity = "0";
-googleFormFrame.style.pointerEvents = "none";
-googleFormFrame.style.left = "-9999px";
-googleFormFrame.style.top = "-9999px";
-
-document.body.appendChild(googleFormFrame);
+const submitButton =
+    document.getElementById("submitButton");
 
 
 /* =========================================================
-   FORM SUBMIT
+   CHECK FORM ELEMENTS
 ========================================================= */
 
-quoteForm.addEventListener("submit", function(e) {
+if(
+    quoteForm &&
+    formMessage &&
+    submitButton
+){
 
-    e.preventDefault();
 
-    /* Prevent double submission */
+    /* =====================================================
+       CREATE HIDDEN IFRAME
+    ===================================================== */
 
-    if (submitButton.disabled) {
-        return;
+    const googleFormFrame =
+        document.createElement("iframe");
+
+
+    googleFormFrame.name =
+        "panUHiddenGoogleForm";
+
+
+    googleFormFrame.id =
+        "panUHiddenGoogleForm";
+
+
+    googleFormFrame.style.position =
+        "fixed";
+
+
+    googleFormFrame.style.width =
+        "1px";
+
+
+    googleFormFrame.style.height =
+        "1px";
+
+
+    googleFormFrame.style.border =
+        "0";
+
+
+    googleFormFrame.style.opacity =
+        "0";
+
+
+    googleFormFrame.style.pointerEvents =
+        "none";
+
+
+    googleFormFrame.style.left =
+        "-9999px";
+
+
+    googleFormFrame.style.top =
+        "-9999px";
+
+
+    document.body.appendChild(
+        googleFormFrame
+    );
+
+
+    /* =====================================================
+       FORM SUBMIT
+    ===================================================== */
+
+    quoteForm.addEventListener(
+        "submit",
+        function(e){
+
+            e.preventDefault();
+
+
+            /* ---------------------------------------------
+               Prevent double submission
+            --------------------------------------------- */
+
+            if(submitButton.disabled){
+
+                return;
+
+            }
+
+
+            /* ---------------------------------------------
+               Get website form data
+            --------------------------------------------- */
+
+            const data =
+                new FormData(
+                    quoteForm
+                );
+
+
+            /* ---------------------------------------------
+               Button state
+            --------------------------------------------- */
+
+            submitButton.disabled =
+                true;
+
+
+            submitButton.textContent =
+                "SENDING...";
+
+
+            formMessage.style.color =
+                "#777";
+
+
+            formMessage.textContent =
+                "Sending your sourcing request...";
+
+
+            /* =================================================
+               CREATE GOOGLE FORM
+            ================================================= */
+
+            const googleForm =
+                document.createElement("form");
+
+
+            googleForm.action =
+                "https://docs.google.com/forms/d/e/1FAIpQLSeXDig9XRNq5jPsuVbgvkKkHedFgGfzwIs26TNYF8RYPdZMMw/formResponse";
+
+
+            googleForm.method =
+                "POST";
+
+
+            googleForm.target =
+                "panUHiddenGoogleForm";
+
+
+            googleForm.style.display =
+                "none";
+
+
+            /* =================================================
+               GOOGLE FORM FIELD MAPPING
+            ================================================= */
+
+            const fields = {
+
+                "entry.68405017":
+                    data.get("name") || "",
+
+                "entry.734667108":
+                    data.get("company") || "",
+
+                "entry.403534399":
+                    data.get("country") || "",
+
+                "entry.1072628727":
+                    data.get("whatsapp") || "",
+
+                "entry.741711629":
+                    data.get("email") || "",
+
+                "entry.1302869534":
+                    data.get("category") || "",
+
+                "entry.2052737106":
+                    data.get("quantity") || "",
+
+                "entry.129690115":
+                    data.get("destination") || "",
+
+                "entry.1484201385":
+                    data.get("message") || ""
+
+            };
+
+
+            /* =================================================
+               CREATE HIDDEN INPUTS
+            ================================================= */
+
+            Object.keys(fields).forEach(
+                function(fieldName){
+
+                    const input =
+                        document.createElement(
+                            "input"
+                        );
+
+
+                    input.type =
+                        "hidden";
+
+
+                    input.name =
+                        fieldName;
+
+
+                    input.value =
+                        fields[fieldName];
+
+
+                    googleForm.appendChild(
+                        input
+                    );
+
+                }
+            );
+
+
+            /* =================================================
+               ADD GOOGLE FORM
+            ================================================= */
+
+            document.body.appendChild(
+                googleForm
+            );
+
+
+            /* =================================================
+               SUBMIT GOOGLE FORM
+            ================================================= */
+
+            HTMLFormElement.prototype.submit.call(
+                googleForm
+            );
+
+
+            /* =================================================
+               SUCCESS MESSAGE
+            ================================================= */
+
+            setTimeout(
+                function(){
+
+                    formMessage.style.color =
+                        "#555";
+
+
+                    formMessage.textContent =
+                        "Thank you. Your sourcing request has been received. We will contact you shortly.";
+
+
+                    /* Clear customer form */
+
+                    quoteForm.reset();
+
+
+                    /* Restore button */
+
+                    submitButton.disabled =
+                        false;
+
+
+                    submitButton.textContent =
+                        "SEND SOURCING REQUEST →";
+
+
+                    /* Remove temporary form */
+
+                    googleForm.remove();
+
+
+                },
+                1800
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   VIDEO FALLBACK
+========================================================= */
+
+document.querySelectorAll("video").forEach(
+    function(video){
+
+        video.addEventListener(
+            "error",
+            function(){
+
+                console.log(
+                    "Video could not be loaded:",
+                    video.currentSrc
+                );
+
+            }
+        );
+
     }
+);
 
 
-    /* -----------------------------------------------------
-       Get website form data
-    ----------------------------------------------------- */
+/* =========================================================
+   ESC KEY
+========================================================= */
 
-    const data = new FormData(quoteForm);
+document.addEventListener(
+    "keydown",
+    function(e){
 
+        if(e.key === "Escape"){
 
-    /* -----------------------------------------------------
-       Button state
-    ----------------------------------------------------- */
+            closeMenu();
 
-    submitButton.disabled = true;
-
-    submitButton.textContent = "SENDING...";
-
-    formMessage.style.color = "#777";
-
-    formMessage.textContent =
-        "Sending your sourcing request...";
-
-
-    /* =====================================================
-       CREATE GOOGLE FORM
-    ===================================================== */
-
-    const googleForm = document.createElement("form");
-
-    googleForm.action =
-        "https://docs.google.com/forms/d/e/1FAIpQLSeXDig9XRNq5jPsuVbgvkKkHedFgGfzwIs26TNYF8RYPdZMMw/formResponse";
-
-    googleForm.method = "POST";
-
-    googleForm.target = "panUHiddenGoogleForm";
-
-    googleForm.style.display = "none";
-
-
-    /* =====================================================
-       GOOGLE FORM FIELD MAPPING
-    ===================================================== */
-
-    const fields = {
-
-        /* Full Name */
-        "entry.68405017":
-            data.get("name") || "",
-
-        /* Company */
-        "entry.734667108":
-            data.get("company") || "",
-
-        /* Country */
-        "entry.403534399":
-            data.get("country") || "",
-
-        /* WhatsApp */
-        "entry.1072628727":
-            data.get("whatsapp") || "",
-
-        /* Email */
-        "entry.741711629":
-            data.get("email") || "",
-
-        /* Product Category */
-        "entry.1302869534":
-            data.get("category") || "",
-
-        /* Estimated Quantity */
-        "entry.2052737106":
-            data.get("quantity") || "",
-
-        /* Destination / Port */
-        "entry.129690115":
-            data.get("destination") || "",
-
-        /* Message */
-        "entry.1484201385":
-            data.get("message") || ""
-
-    };
-
-
-    /* =====================================================
-       CREATE HIDDEN INPUTS
-    ===================================================== */
-
-    Object.keys(fields).forEach(function(fieldName) {
-
-        const input = document.createElement("input");
-
-        input.type = "hidden";
-
-        input.name = fieldName;
-
-        input.value = fields[fieldName];
-
-        googleForm.appendChild(input);
-
-    });
-
-
-    /* -----------------------------------------------------
-       Add Google Form to website
-    ----------------------------------------------------- */
-
-    document.body.appendChild(googleForm);
-
-
-    /* =====================================================
-       SUBMIT TO GOOGLE
-       
-       Customer remains on PAN-U VISION website.
-    ===================================================== */
-
-    HTMLFormElement.prototype.submit.call(googleForm);
-
-
-    /* =====================================================
-       SUCCESS MESSAGE
-    ===================================================== */
-
-    setTimeout(function() {
-
-        formMessage.style.color = "#555";
-
-        formMessage.textContent =
-            "Thank you. Your sourcing request has been received. We will contact you shortly.";
-
-
-        /* Clear customer form */
-
-        quoteForm.reset();
-
-
-        /* Restore button */
-
-        submitButton.disabled = false;
-
-        submitButton.textContent =
-            "SEND SOURCING REQUEST →";
-
-
-        /* Remove temporary Google form */
-
-        googleForm.remove();
-
-    }, 1800);
-
-});
+        }
 
     }
 );
